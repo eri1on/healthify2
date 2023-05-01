@@ -1,0 +1,146 @@
+body{
+    margin:0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  
+  
+}
+
+
+.exising-user-p{
+    font-size: small;
+   
+}
+
+
+
+
+a{
+    text-decoration: none;
+    color:green;
+    font-size:larger;
+    font-weight: 500;
+}
+
+
+#signup-form-div{    
+   
+
+    height:80vh;
+    width:50%;
+    border-style: outset;
+    border-radius: 40px;
+    border:none;
+    box-shadow: 0 0 10px rgba(63, 208, 6, 0.3);
+  
+    
+    
+   
+
+  
+}
+
+
+
+#signup-form{                          
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      
+    
+}
+
+.form-input{
+  
+    margin:15px;
+    border:none;
+   border-bottom: 2px solid #ccc ;
+    width:300px;
+    height:30px;
+    text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+ 
+    
+    
+}
+.form-input:hover, .form-input:focus {
+    border-color: #4d90fe;
+    box-shadow: 0 0 7px #4d90fe;
+  }
+
+
+
+#why-div{
+  
+   
+    height:100vh;
+    background-color:#fff;
+    width:50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/human-running-removebg-preview.png");
+    background-repeat: no-repeat;
+    background-position-y: -25px;
+    background-size:350px;
+   
+}
+#why-div h2{
+    padding-top: -20px;
+}
+
+.why-div-li{
+    width: 70%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-top: 100px;
+
+
+}
+
+#why-div li{
+     list-style-type:circle;
+     margin: 10px;
+     font-family:Verdana, Geneva, Tahoma, sans-serif;
+     font-size: small;
+     text-align: left;
+     
+     
+}
+.img{
+    width:100px;
+}
+
+.submit-btn{
+
+    border:none;
+   border-bottom: 2px solid #ccc ;
+    width:300px;
+    height:35px;
+    text-align: center;
+    background-color: #354259;
+    border-radius: 40px;
+    color:white;
+    margin-top:10px;
+}
+
+.submit-btn:hover , .submit-btn:focus{
+    border-color: #4d90fe;
+    box-shadow: 0 0 10px #4d90fe;
+    cursor: pointer;
+    
+}
+

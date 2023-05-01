@@ -1,0 +1,630 @@
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+body {
+   /* background: linear-gradient(to bottom, white, rgb(210, 252, 210)); */
+    height: 4100px;
+    font-family: Roboto, Arial;
+    margin: 0;
+}
+
+
+.header {
+    height: 76px;   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    z-index: 100;
+    box-shadow: 0px 3px 5px grey;
+}
+
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+
+.healthify-logo {
+    height: 150px;
+    margin-left: 30px;
+    margin-right: -5px;
+}
+
+
+.healthify-text {
+    font-size: 23px;
+    color: white;
+}
+
+
+.right-section {
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin-right: 50px;
+}
+.right-section a {
+    text-decoration: none;
+    color: white;
+}
+
+.myDiet {
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+.myDiet:hover { 
+    background-color: #2a303d;
+}
+
+
+.recipes-and-tips {
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+.recipes-and-tips:hover { 
+    background-color: #2a303d;
+}
+
+
+.contact-us {
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+.contact-us:hover {
+    background-color: #2a303d;
+}
+
+
+.sign-up {
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+.sign-up:hover {
+    background-color: #2a303d;
+}
+
+.profile{
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+    border-color: black;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.profile:hover{
+    background-color: #2a303d;
+}
+.logout-btn{
+   
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-left:15px;
+   
+}
+.logout-btn:hover {
+    background-color: #2a303d;
+    cursor: pointer;
+}
+.text-background {
+    margin-top: 76px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+    background-image: url(../img/vegetables.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+}
+
+.text-container {
+    font-family: Roboto, Arial;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.diet-button {
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    height: 45px;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 200px;
+    border-radius: 20px;
+    border-width: 0;
+    background-color: white;
+    opacity: 70%;
+    box-shadow: 0px 15px 15px grey;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.diet-button a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+.diet-button:hover{
+    background-color: rgb(231, 226, 226);
+}
+
+.detail-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 600px;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    font-family: Roboto, Arial;
+    color: rgb(122, 122, 122);
+}
+
+.img-det1 {
+    height: 550px;
+    width: 425px;
+    display: flex;
+    margin-bottom: -150px;
+    margin-top: -100px;
+}
+.img-det2 {
+    height: 350px;
+    width: 450px;
+    display: flex;
+    margin-bottom: -100px;
+    margin-top: -45px;
+}
+.img-det3 {
+    height: 460px;
+    width: 450px;
+    display: flex;
+    margin-bottom: -150px;
+    margin-top: -100px;
+}
+
+.what-container {
+    border: solid;
+    border-radius: 50px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-color: none;
+    border-width: 0px;
+    margin: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0px 30px 30px grey;
+}
+
+.heading-con {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+}
+
+
+.thirdPage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    background-image: url(../img/nature1.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    /*background-color: lightpink;*/
+    margin-top: 30px;
+    border-radius: 1000px;
+    clip-path: circle(62%);
+    box-shadow: 0px 0px 30px grey;
+}
+
+.thirdPage-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 300px;    
+    width: 900px;
+    font-family: Robot, Arial;
+    font-size: 24px;
+    color: black;
+}
+
+.headTxt-cont {
+    font-weight: 700;
+    font-family: Roboto, Arial;
+    font-size: 32px;
+}
+
+.thirdPage-button {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-radius: 5px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-family: Roboto, Arial;
+    font-size: 20px;
+    background-color: rgb(28, 66, 88);
+    cursor: pointer;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    opacity: 70%;
+    border: none;
+    box-shadow: 0px -25px 55px black;
+}
+.thirdPage-button:hover {
+    background-color: rgb(111, 156, 170);
+}
+
+.thirdPage-button a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    opacity: 100%;
+}
+
+.fourPage-container {
+    height: 600px;
+    border: none;
+    margin-top: 55px;
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top-right-radius: 35%;
+    border-bottom-left-radius: 35%;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-shadow: 5px 0px 20px black;
+}
+
+.four-text {
+    margin-right: 100px;
+    margin-left: 80px;
+    padding-left: 0px;
+    width: 600px;
+    height: 300px;
+    border: none;
+    font-size: 20px;
+    font-family: Roboto, Arial;
+    font-weight: 400;
+    color: white;
+}
+
+.fourHeader {
+    font-family: Roboto, Arial;
+    margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 500;
+    padding: 15px;
+    padding-left: 0px;
+    border: none;
+    color: white;
+}
+
+.four-button {
+    margin-top: 30px;
+}
+.four-button-cl {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+}
+.four-button a{
+    text-decoration: none;
+    color: green    ;
+    font-size: 16px;
+    font-weight: 500;
+}
+.four-button-cl:hover {
+    background-color: rgb(250, 224, 224);
+}
+
+.four-img {
+    margin-left: 250px;
+    margin-bottom: 30px;
+    height: 450px;
+    width: 300px;
+}
+
+.fivePage-container {
+    height: 950px;
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2a303d;
+    padding-top: 35px;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+}
+
+.topFive-container {
+    height: 200px;
+    margin-top: 25px;
+    margin-left: 200px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Roboto, Arial;
+    font-size: 18px;
+    padding-top: 0px;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.topHeader {
+    font-family: Roboto, Arial;
+    font-size: 32px;
+    font-weight: 500px;
+    padding-bottom: 35px;
+    color: white;
+}
+
+.botFive-container {
+    height: 400px;
+    margin-top: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.imgFive {
+    height: 140px;
+    width: 120px;
+    border: none;
+    border-radius: 100%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: top; 
+    box-shadow: 0px 15px 15px grey;
+}
+
+.firstImg {
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Roboto, Arial;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+.secondImg {
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Roboto, Arial;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    color: white;
+    border-left: double;
+    border-left-color: white;
+    border-right: double;
+    border-right-color: white;
+}
+
+.thirdImg {
+    height: 350px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Roboto, Arial;
+    font-size: 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+.footerFive {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto, Arial;
+    font-size: 21px;
+    color: white;
+}
+
+.buttonFive {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.button5 {
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+.button5 a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #2a303d;
+}
+
+.info-container {
+    height: 225px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #2a303d, white);
+}
+
+.leftInfo {
+    height: 150px;
+    width: 500px;
+    margin-left: 100px;
+    font-family: Roboto, Arial;
+    font-size: 17px;
+}
+.infoHead {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: Roboto, Arial;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.midInfo {
+    margin-right: 25px;
+    height: 100px;
+    width: 300px;
+}
+
+.midInfo a {
+    padding-top: 15px; 
+    transform: scale(2);
+    text-decoration: none;
+    color: black;
+}
+.midInfo a:hover{
+    color: white;
+}
+
+.midText {
+    font-family: Roboto, Arial;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.rightInfo {
+    margin-bottom: 30px;
+    height: 100px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.rightText {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: Roboto, Arial;
+    font-weight: 500;
+    font-size: 20px;
+}
+i {
+    padding-top: 10px;
+    transform: scale(1.2);
+    text-decoration: none;
+    color: black;
+    padding-left: 18px;
+}
+
+.footer {
+    padding-top: 12px;
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
