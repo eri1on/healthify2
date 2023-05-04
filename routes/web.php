@@ -30,12 +30,9 @@ Route::middleware('auth')->group(function () {
         return view('contact-us');
     })->name('contactUs');
     
-    Route::get('/login1', function () {
-        return view('login1');
-    })->name('login1');
-    
-    Route::get('/SignUp', function () {
-        return view('SignUp');
+
+    Route::get('/Signup', function () {
+        return view('auth.register');
     })->name('signup');
     
     Route::get('/recipesTips', function () {
@@ -46,20 +43,17 @@ Route::middleware('auth')->group(function () {
         return view('MyDiet');
     })->name('myDiet');
     
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
+    
 
-
-
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-        
-    })->middleware(['auth', 'verified'])->name('dashboard');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user-profile',[ProfileController::class, 'show'])->name('userprofileshow');
+  
 });
 
 require __DIR__.'/auth.php';
@@ -68,6 +62,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
