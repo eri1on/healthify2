@@ -1,16 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+
+
+
 
 class ProfileController extends Controller
 {
+
+
+
+    public function show(){
+        $user = Auth::user();
+        return view('user-profile', compact('user'));
+
+    }
+    
+
+
+    
     /**
      * Display the user's profile form.
      */
@@ -21,21 +36,31 @@ class ProfileController extends Controller
         ]);
     }
 
+
+
+
     /**
      * Update the user's profile information.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $user = $request->user();
+        $user->fill($request->validated());
+    
+        // Hash the password if it is not empty
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->input('password'));
         }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+    
+        $user->save();
+    
+        return Redirect::route('userprofileshow')->with('success', 'Profile updated successfully');
     }
+    
 
     /**
      * Delete the user's account.
@@ -57,4 +82,12 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+
+
+
+
+
+
+
 }
