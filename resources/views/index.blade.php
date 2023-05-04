@@ -37,7 +37,7 @@
                 <div class="myDiet"><a href="/MyDiet">My Diet</a></div>
                 <div class="recipes-and-tips"><a href="/recipesTips">Recipes and Tips</a></div>
                 <div class="contact-us"><a href="/contact-us">Contact Us</a></div>
-                <div class="profile"><a href="/profile">Profile</a></div>
+                <div class="profile"><a href="/user-profile">Profile</a></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="logout-btn">Logout</button>
