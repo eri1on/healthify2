@@ -23,6 +23,9 @@
 
  
     <div class="nav-div">
+    @if(Auth::user()&&Auth::user()->is_admin)
+    <button class="nav-btn"><a href="{{route('userinfoshow')}}">Dashboard</a></button>
+    @endif
     <button class="nav-btn"> <a href="{{route('index')}}" >Home</a></button>
     <button class="nav-btn"> <a href="{{route('userprofileshow')}}" >My Profile</a></button>
     <button class="nav-btn"> <a href="{{route('index')}}" >Blog</a></button>
