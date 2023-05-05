@@ -44,6 +44,14 @@
 <td>{{$user->goal}}</td>
 <td>{{$user->activity}}</td>
 <td>{{$user->is_admin}}</td>
+<td><a href="{{route('admin-user-edit',$user->id)}}" class="btn btn-primary">Edit</a></td>
+<td>
+ <form action="{{route('admin-user-delete',$user->id)}}" method="POST" style="display: inline-block">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Delete</button>
+ </form>
+</td>
 </tr>
 @endforeach
 </tbody>
