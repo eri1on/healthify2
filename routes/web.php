@@ -49,13 +49,18 @@ Route::middleware('auth')->group(function () {
     })->name('login');
     
 
-    
+    /*These are simple user 'ProfileController' Routes,Where these methods can be used to allow simple user to edit,update or delete their account*/
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/user-profile',[ProfileController::class, 'show'])->name('userprofileshow');
-    Route::get('/user-info',[userController::class,'getData'])->name('userinfoshow');
-  
+
+    /*These will be 'Routes' for admin  'userController' where admin can use these methods to delete an accout or edit,update simple user's account*/
+    Route::get('/user-info',[userController::class,'getData'])->name('userinfoshow'); //shows all users and all their info that are saved in database
+    Route::get('/admin-user-edit/{id}',[userController::class,'edit'])->name('admin-user-edit');
+    Route::delete('admin-user-delete/{id}',[userController::class,'destroy'])->name('admin-user-delete');
+    Route::put('admin-user-update/{id}',[userController::class,'update'])->name('admin-user-update');
+
 });
 
 require __DIR__.'/auth.php';
