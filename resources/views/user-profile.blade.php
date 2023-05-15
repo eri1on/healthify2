@@ -10,9 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile Update</title>
     <link rel="stylesheet" href={{asset('css/user-profile.css')}}>
+   
 </head>
 <body>
-    <form class="main-form" method="POST" action="{{ route('profile.update') }}">
+    <form class="main-form" method="POST" action="{{ route('profile.update') }}" onsubmit=" return userProfileInfoValidation();">
         @csrf
         @method('PATCH')
     <h5>Profile Update</h5>
@@ -114,6 +115,7 @@
             @error('activity')
             <span class="text-danger">{{ $message }}</span>
             @enderror
+            <div id="errorDiv" style="color:red"></div>
         </div>
     
         <div class="form-update-btn">
@@ -122,6 +124,13 @@
             </button>
         </div>
     </form>
+  
+    @push('scripts')
+    <script src="{{ asset('js-Validations/user-profile-info-validation.js') }}"></script>
+@endpush
+
+@stack('scripts')
+
 </body>
 </html>
 
