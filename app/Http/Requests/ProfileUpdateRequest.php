@@ -16,15 +16,15 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255'],
+            'name' => ['required', 'string', 'max:255',                            'regex:/^[a-zA-z]{2,}/'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'age' => ['required', 'integer', 'min:0', 'max:150'],
-            'gender' => ['required', 'string', 'in:male,female'],
-            'height' => ['required', 'numeric', 'min:0', 'max:300'],
-            'weight' => ['required', 'numeric', 'min:0', 'max:1000'],
-            'goal' => ['required', 'string', 'in:lose_weight,gain_weight'],
-            'activity' => ['required', 'string', 'in:low_activity,high_activity'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed',              'regex:/^.{8,}$/'],
+            'age' => ['required', 'numeric', 'min:18',                              'regex:/^\d{2}$/'],
+            'gender' => ['required', 'in:male,female',                              'regex:/^(male|female)$/i'],
+            'height' => ['required', 'numeric', 'min:100', 'max:350',                 'regex:/^(?:[1-2]\d{2}|3[0-4]\d|350)$/'],
+            'weight' => ['required', 'numeric', 'min:30', 'max:400',                 'regex:/^([3-9][0-9]{1}|[1-9][0-9]{2}|400)$/'],
+            'goal' => ['required', 'in:lose_weight,gain_weight',                    'regex:/^(lose_weight|gain_weight)$/i'],
+            'activity' => ['required', 'in:high_activity,low_activity',             'regex:/^(high_activity|low_activity)$/i'],
         ];
     }
 
