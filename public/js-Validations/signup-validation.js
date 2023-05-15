@@ -74,6 +74,11 @@ if(!ageRegex.test(ageInput)){
     document.getElementById('age').focus();
     return false;
 }
+if (parseInt(ageInput) < 18) {
+    errorDiv.innerText = "You must be at least 18 years old.";
+    document.getElementById('age').focus();
+    return false;
+  }
 
 
 
