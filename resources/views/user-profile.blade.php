@@ -65,7 +65,7 @@
                 <option value="">Select gender </option>
                 <option value="male" {{ old('gender', $user->gender) == 'male' ? 'selected' : '' }}>Male</option>
                 <option value="female" {{ old('gender', $user->gender) == 'female' ? 'selected' : '' }}>Female</option>
-            </select>
+            </select><br>
             @error('gender')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -74,7 +74,7 @@
         
         <div class="form-update">
             <label for="height">Height:</label>
-            <input type="number" id="height" name="height" value="{{ old('height', $user->height) }}" class="form-input">
+            <input type="number" id="height" name="height" value="{{ old('height', $user->height) }}" class="form-input"><br>
             @error('height')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -82,7 +82,7 @@
     
         <div class="form-update">
             <label for="weight">Weight:</label>
-            <input type="number" id="weight" name="weight" value="{{ old('weight', $user->weight) }}" class="form-input">
+            <input type="number" id="weight" name="weight" value="{{ old('weight', $user->weight) }}" class="form-input"><br>
             @error('weight')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -95,7 +95,7 @@
                 <option value="">-- Select Your Goal --</option>
                 <option value="lose_weight" {{ $user->goal == 'lose_weight' ? 'selected' : '' }}>Lose Weight</option>
                 <option value="gain_weight" {{ $user->goal == 'gain_weight' ? 'selected' : '' }}>Gain Weight</option>
-            </select>
+            </select><br>
             
             @error('goal')
                 <span class="text-danger">{{ $message }}</span>
@@ -109,7 +109,7 @@
                 <option value="">-- Select Activity --</option>
                 <option value="low_activity" {{ $user->activity == 'low_activity' ? 'selected' : '' }}>Low Activity</option>
                 <option value="high_activity" {{ $user->activity == 'high_activity' ? 'selected' : '' }}>High Activity</option>
-            </select>
+            </select><br>
             
             @error('activity')
             <span class="text-danger">{{ $message }}</span>
@@ -120,6 +120,8 @@
             <button type="submit" class="btn btn-primary">
                 {{ __('Update') }}
             </button>
+        </div>
+    </form>
 </body>
 </html>
 
