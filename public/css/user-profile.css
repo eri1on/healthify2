@@ -4,17 +4,18 @@ body{
     background-image: url(/img/half-nature-art.png);
     background-repeat: no-repeat;
     background-size: cover;
+   
 }
 .main-form{
 
-    max-width: 800px;
+    max-width: 1000px;
     margin:0 auto;
     background-color:#fff;
-    height:600px;
+    height: 900px;
     font-family: sans-serif;
     font-weight: 500;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-    
+    padding-bottom: 300px;
 
 }
 .main-form h5{
@@ -32,6 +33,7 @@ body{
 .form-update{
    max-width: 500px;
    margin:0 auto;
+   margin-top:5px;
 
 
 }
@@ -60,10 +62,17 @@ body{
 
 }
 .form-update-btn{
-    margin-left:37%;
+    margin-left:40%;
     margin-top:15px;
     height:30px;
     margin-bottom: 40px;
  
  
+}
+
+.invalid-feedback{
+    margin-left:150px;
+}
+.text-danger{
+       margin-left:150px;
 }
