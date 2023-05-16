@@ -18,7 +18,7 @@ return new class extends Migration
         $table->integer('height')->after('gender');
         $table->integer('weight')->after('height');
         $table->enum('goal', ['lose_weight', 'gain_weight'])->after('weight');
-        $table->enum('activity', ['low_activity', 'moderate_activity', 'high_activity'])->after('goal'); 
+        $table->enum('activity', ['low_activity', 'high_activity'])->after('goal'); 
         $table->boolean('is_admin')->default(false)->after('activity');
 
 
