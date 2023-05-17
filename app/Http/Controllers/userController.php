@@ -8,6 +8,7 @@ use App\Models\User;
 
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -32,9 +33,10 @@ class userController extends Controller
 
 
     // Update method
-
+   
     public function update(Request $request ,$id){
 
+        if(Auth::user()&&Auth::user()->is_admin){  //Check if the user is an admin
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255',                            'regex:/^[a-zA-z]{2,}/'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($id)],
@@ -70,15 +72,22 @@ class userController extends Controller
         $user->save(); // save changes
 
         return redirect()->route('userinfoshow')->with('success', 'User updated Successfully.');
+    }else{
+        return redirect()->back()->with('error', 'Unauthorized access.'); //handles Unauthorized access(Gives an error message)
+    }
     }
 
     
     // Destroy or delete Method
 
     public function destroy($id){
+        if(Auth::user()&&Auth::user()->is_admin){   //Check if user is an admin
         $user=User::findOrFail($id);
         $user->delete();   //delete the user.
         return redirect()->route('userinfoshow')->with('success','User Deleted Successfully');
+        }else{
+            return redirect()->back()->with('error', 'Unauthorized access.');  //handles Unauthorized access(Gives an error message)
+        }
     }
 
 
