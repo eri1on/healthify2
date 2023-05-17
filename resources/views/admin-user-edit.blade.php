@@ -135,7 +135,11 @@
         {{ __('Update') }}
     </button>
 </form>
-
+@if(session('error'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 </body>
 </html>
 
