@@ -54,6 +54,8 @@ class userController extends Controller
             'weight' => ['required', 'numeric', 'min:30', 'max:400',                 'regex:/^([3-9][0-9]{1}|[1-9][0-9]{2}|400)$/'],
             'goal' => ['required', 'in:lose_weight,gain_weight',                    'regex:/^(lose_weight|gain_weight)$/i'],
             'activity' => ['required', 'in:high_activity,low_activity',             'regex:/^(high_activity|low_activity)$/i'],
+            'is_admin' => ['boolean'],
+            'is_superadmin' => ['boolean'],
         ]);
 
         $user->name = $validatedData['name'];
