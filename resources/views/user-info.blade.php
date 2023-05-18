@@ -11,7 +11,22 @@
     <link rel="stylesheet" href="{{asset('css/user-info.css')}}">
 </head>
 <body>
+    @if(session('success'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+@if (session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+@endif
 
     <table>
     <thead>
@@ -26,6 +41,7 @@
    <th>Goal</th>
    <th>Activity</th>
    <th>Is_Admin</th>
+   <th>Is_SuperAdmin</th>
 
    </tr>
 
@@ -44,6 +60,7 @@
 <td>{{$user->goal}}</td>
 <td>{{$user->activity}}</td>
 <td>{{$user->is_admin}}</td>
+<td>{{$user->is_superadmin}}</td>
 <td><a href="{{route('admin-user-edit',$user->id)}}" class="btn btn-primary">Edit</a></td>
 <td>
  <form action="{{route('admin-user-delete',$user->id)}}" method="POST" style="display: inline-block">
