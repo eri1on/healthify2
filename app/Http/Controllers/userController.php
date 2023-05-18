@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
     //
-
+    
     public function getData(){
+
+        $user=Auth::user();
+        if ($user && ($user->is_admin || $user->is_superadmin)) {
 
      $users=User::all();
 
      return view('user-info',compact('users'));
-
+        }else {
+            return redirect()->route('index');
+        }
     }
 
     
@@ -36,7 +41,9 @@ class userController extends Controller
    
     public function update(Request $request ,$id){
 
-        if(Auth::user()&&Auth::user()->is_admin){  //Check if the user is an admin
+        $user=User::findOrFail($id);
+
+        if(Auth::user() && (Auth::user()->is_superadmin || (Auth::user()->is_admin && !$user->is_admin && !$user->is_superadmin))){  //Check if the user is an admin
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255',                            'regex:/^[a-zA-z]{2,}/'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($id)],
@@ -48,11 +55,6 @@ class userController extends Controller
             'goal' => ['required', 'in:lose_weight,gain_weight',                    'regex:/^(lose_weight|gain_weight)$/i'],
             'activity' => ['required', 'in:high_activity,low_activity',             'regex:/^(high_activity|low_activity)$/i'],
         ]);
-        
-
-
-
-        $user=User::findOrFail($id);
 
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
@@ -62,18 +64,31 @@ class userController extends Controller
         $user->weight = $validatedData['weight'];
         $user->goal = $validatedData['goal'];
         $user->activity = $validatedData['activity'];
-        $user->is_admin = $request->input('is_admin', false);
         if ($request->filled('password')) {
             $user->password = Hash::make($request->input('password'));
         }else {
             // If the password fields are not filled, use the user's current password
             $user->password = $user->getOriginal('password');
         }
+        
+        if (Auth::user()->is_superadmin && $request->has('is_admin')){
+        $user->is_admin = $request->input('is_admin', false);
+        }
+         if(Auth::user()->is_superadmin &&$request->has('is_superadmin')){
+        $user->is_superadmin=$request->input('is_superadmin',false);
+        }
+
+      
+        if($user->isDirty()){
+
         $user->save(); // save changes
 
         return redirect()->route('userinfoshow')->with('success', 'User updated Successfully.');
+        }else {
+            return redirect()->route('userinfoshow')->with('info', 'No changes were made to the user.');
+        }
     }else{
-        return redirect()->back()->with('error', 'Unauthorized access.'); //handles Unauthorized access(Gives an error message)
+        return redirect()->back()->with('error', 'Unauthorized Action!'); //handles Unauthorized access(Gives an error message)
     }
     }
 
@@ -81,12 +96,13 @@ class userController extends Controller
     // Destroy or delete Method
 
     public function destroy($id){
-        if(Auth::user()&&Auth::user()->is_admin){   //Check if user is an admin
         $user=User::findOrFail($id);
+        if (Auth::user() && (Auth::user()->is_superadmin || (Auth::user()->is_admin && !$user->is_admin && !$user->is_superadmin))){   //Check if user is an admin
+        
         $user->delete();   //delete the user.
         return redirect()->route('userinfoshow')->with('success','User Deleted Successfully');
         }else{
-            return redirect()->back()->with('error', 'Unauthorized access.');  //handles Unauthorized access(Gives an error message)
+            return redirect()->back()->with('error', 'Unauthorized Action!');  //handles Unauthorized access(Gives an error message)
         }
     }
 
