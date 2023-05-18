@@ -81,7 +81,8 @@ class RegisterController extends Controller
             'weight' => $data['weight'], // add new column
             'goal' => $data['goal'], // add new column
             'activity' => $data['activity'], // add new column
-            'is_admin' =>false
+            'is_admin' =>false,
+            'is_superadmin'=>false
         ]);
     }
 }
