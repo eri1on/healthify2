@@ -13,10 +13,15 @@
 <body>
 
 
-<form method="POST" action="{{route('admin-user-update',$user->id)}}">
+<form method="POST" action="{{route('admin-user-update',$user->id)}}" onsubmit="return userProfileInfoValidation();">
 @csrf
 @method ('PUT')
 
+@if(session('error'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 
 <div class="form-update">
     <label for="name">Name:</label>
@@ -119,6 +124,7 @@
 <div class="form-update">
     <label for="is_admin">Is Admin:</label>
     <select id="is_admin" name="is_admin" class="form-input">
+        <option value="">Select Role</option>
         <option value="0" {{ old('is_admin', $user->is_admin) == '0' ? 'selected' : '' }}>No</option>
         <option value="1" {{ old('is_admin', $user->is_admin) == '1' ? 'selected' : '' }}>Yes</option>
     </select>
@@ -128,18 +134,32 @@
     @enderror
 </div>
 
-
+<div class="form-update">
+    <label for="is_superadmin">Is SuperAdmin:</label>
+    <select id="is_superadmin" name="is_superadmin" class="form-input">
+        <option value="">Select Role</option>
+        <option value="0"{{old('is_superadmin',$user->is_superadmin)=='0'?'selected':''}}>No</option>
+        <option value="1"{{old('is_superadmin',$user->is_superadmin)=='1'?'selected':''}}>Yes</option>
+    </select>
+    
+    @error('is_superadmin')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
+<div id="errorDiv" style="color:red"></div>
 
 <div class="form-update-btn">
     <button type="submit" class="btn btn-primary">
         {{ __('Update') }}
     </button>
 </form>
-@if(session('error'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
+@push('scripts')
+<script src="{{ asset('js-Validations/user-info-dashboard-validation.js') }}"></script>
+@endpush
+
+@stack('scripts')
+
+
 </body>
 </html>
 
