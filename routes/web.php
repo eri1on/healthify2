@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\FoodsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,8 +49,12 @@ Route::middleware('auth')->group(function () {
         return view('auth.login');
     })->name('login');
     
-
-    /*These are simple user 'ProfileController' Routes,Where these methods can be used to allow simple user to edit,update or delete their account*/
+    Route::get('/foods/create', function () {
+        return view('add-food');
+    })->name('foods.create');
+    
+   
+    /*These are  user 'ProfileController' Routes,Where these methods can be used to allow  user to edit,update or delete their account*/
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -60,7 +65,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin-user-edit/{id}',[userController::class,'edit'])->name('admin-user-edit');
     Route::delete('admin-user-delete/{id}',[userController::class,'destroy'])->name('admin-user-delete');
     Route::put('admin-user-update/{id}',[userController::class,'update'])->name('admin-user-update');
-
+    // --------------------------
+    Route::post('/foods',[FoodsController::class,'store'])->name('foods.store');
+    Route::get('/selectFood',[FoodsController::class,'getFoods'])->name('select-food');
 });
 
 require __DIR__.'/auth.php';
