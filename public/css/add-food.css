@@ -1,0 +1,86 @@
+
+body{
+    background-color: #F7F7F7;
+    background-image: url(/img/tableWithFood.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.main-form{
+
+    max-width: 1000px;
+    margin:0 auto;
+    background-color:#fff;
+    height: 600px;
+    font-family: sans-serif;
+    font-weight: 500;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    padding-bottom: 200px;
+
+}
+.main-form h5{
+    margin-top:20px;
+    padding-left: 10px;
+    background-color: #F0F0F0;
+    height:35px;
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    border-bottom: solid 1px lightgray;
+    
+}
+
+.field-div{
+   max-width: 500px;
+   margin:0 auto;
+   margin-top:5px;
+
+
+}
+.field-div label{
+    margin-top:10px;
+    text-align: left;
+    width:150px;
+    font-family:'Times New Roman', Times, serif;
+    color:lightseagreen;
+    font-weight: 700;;
+}
+.field-div input{
+    text-align: left;
+    width:65%;
+    height:35px;
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 30px;
+
+}
+.field-div select{
+    text-align: left;
+    width:65%;
+    height:30px;
+    border-style: none;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+
+}
+.field-div-btn{
+    margin-left:40%;
+    margin-top:15px;
+    height:30px;
+    margin-bottom: 40px;
+ 
+ 
+}
+
+.invalid-feedback{
+    margin-left:150px;
+}
+.text-danger{
+       margin-left:150px;
+}
+
+#errorDiv{
+    margin-left: 40%;
+    font-weight: 700;
+}
