@@ -24,7 +24,7 @@
  
     <div class="nav-div">
     @if(Auth::user()&&Auth::user()->is_admin || Auth::user()&&Auth::user()->is_superadmin) 
-    <button class="nav-btn"><a href="{{route('userinfoshow')}}">Dashboard</a></button>
+    <button class="nav-btn"><a href="{{route('dashboard')}}">Dashboard</a></button>
     @endif
     <button class="nav-btn"> <a href="{{route('index')}}" >Home</a></button>
     <button class="nav-btn"> <a href="{{route('userprofileshow')}}" >My Profile</a></button>
