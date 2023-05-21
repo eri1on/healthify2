@@ -27,6 +27,10 @@
         {{ session('info') }}
     </div>
 @endif
+@php
+    $user = auth()->user();
+@endphp
+@if($user && ($user->is_superadmin || $user->is_admin))
 
     <table>
     <thead>
@@ -73,6 +77,12 @@
 @endforeach
 </tbody>
     </table>
+    @else
+    <div class="alert alert-danger">
+        Unauthorized access! Only admins and superadmins can access this page.
+    </div>
+    
+@endif
     
 </body>
 </html>
