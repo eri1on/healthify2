@@ -21,7 +21,7 @@ class FoodsController extends Controller
         }
      }
    
-   
+   //this methods is used to store or save foods into database table 'foods'
     public function store(Request $request){
         $user = auth()->user();
 
@@ -46,6 +46,51 @@ class FoodsController extends Controller
     }
 
 
+//This methods displayes all the foods in the view called 'dashboard-foods.blade.php'
+   public function getAllFoods(){
+     $user=Auth::user();
+     if ($user && ($user->is_admin || $user->is_superadmin)){
+     $allFoods=Foods::all();
+     return view('dashboard-foods',compact('allFoods'));
+     }else{
+        return redirect('/')->with('error','You are not allowed to access this page!');
+     }
+   }
+
+
+
+
+   public function edit($id){
+
+    $user=Auth::user();
+    
+    if($user&&($user->is_admin||$user->is_superadmin)) {
+        $food=Foods::findOrFail($id);
+        return view('admin-food-edit',compact('food'));
+      
+    }else{
+        return redirect()->back()->with('error', 'Something went wrong!');
+    }
+      
+   }
+
+
+   public function delete($id){
+    $user=Auth::user();
+    if($user&&($user->is_admin||$user->is_superadmin)){
+        $food=Foods::findOrFail($id);
+        $food->delete();
+        return redirect()->route('dashboard-foods')->with('success','Food Deleted Successfully');
+    }else{
+        return redirect()->back()->with('error', 'Unauthorized Action!'); 
+    }
+   }
+
+
+
+
+
+
     //this method displayes all the foods in the view called 'select-foods.blade.php'
     public function getFoods(){
         $user=Auth::user();
@@ -54,6 +99,10 @@ class FoodsController extends Controller
 
         return view('select-food',compact('allFoods'));
     }
+
+    /* ////////////////////////////////////////////////////////////////////////////////////////    */
+
+
 
 
 
