@@ -1,0 +1,47 @@
+
+.top-div{
+    max-width: 400px;
+    background-color:lightgray;
+    border-radius: 40px;;
+    height: 400px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(224, 248, 2, 0.3);
+
+}
+
+
+#btn-addFood{
+    
+    font-weight: 700;
+    width:120px;
+    background-color:midnightblue;
+    border-radius: 10px;
+    
+   }
+   #btn-addFood a{
+     text-decoration: none;
+     color:#fff;
+   }
+ 
+   
+
+
+
+   #nav-btn{
+    
+    font-weight: 700;
+    width:100px;
+    background-color:midnightblue;
+   border-radius: 10px;
+    
+    
+   }
+   #nav-btn a{
+     text-decoration: none;
+     color:#fff;
+   }
+  
