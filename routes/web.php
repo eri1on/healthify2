@@ -49,9 +49,7 @@ Route::middleware('auth')->group(function () {
         return view('auth.login');
     })->name('login');
     
-    Route::get('/foods/create', function () {
-        return view('add-food');
-    })->name('foods.create');
+   
     
    
     /*These are  user 'ProfileController' Routes,Where these methods can be used to allow  user to edit,update or delete their account*/
@@ -66,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('admin-user-delete/{id}',[userController::class,'destroy'])->name('admin-user-delete');
     Route::put('admin-user-update/{id}',[userController::class,'update'])->name('admin-user-update');
     // --------------------------
+    Route::get('/foods/create',[FoodsController::class,'showForm'])->name('showCreateFoodForm');
     Route::post('/foods',[FoodsController::class,'store'])->name('foods.store');
     Route::get('/selectFood',[FoodsController::class,'getFoods'])->name('select-food');
 });
