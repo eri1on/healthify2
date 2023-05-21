@@ -20,7 +20,10 @@
     {{ session('error') }}
 </div>
 @endif
-
+@php
+    $user = auth()->user();
+@endphp
+@if($user && ($user->is_superadmin || $user->is_admin))
 <form class="main-form" method="POST" action="{{ route('foods.store') }}" onsubmit=" return validateForm();">
     @csrf
     <h5>Add Food</h5>
@@ -81,6 +84,12 @@
 
 
     </form>
+    @else
+    <div class="alert alert-danger">
+        Unauthorized access! Only admins and superadmins can access this page.
+    </div>
+    
+@endif
     <script src="/js-Validations/add-food-validation.js"></script>
 </body>
 </html>
