@@ -27,8 +27,8 @@ class FoodsController extends Controller
 
 
         $validatedData=$request->validate([
-         'nameOfFood'=>['required','string','max:255', 'regex:/^[A-Za-z]{2,}$/'],
-         'category'=>['required','string', 'max:255',  'regex:/^[A-Za-z]{2,}$/'],
+         'nameOfFood'=>['required','string','max:255', 'regex: /^[a-zA-Z\s]{2,}$/'],
+         'category'=>['required','string', 'max:255',  'regex:/^[A-Za-z\s]{2,}$/'],
          'proteins'=>['required','numeric',             'regex: /^\d+(\.\d+)?$/'],
          'vitamins'=>['required' , 'in:a,b,c,d,e'],
          'calories'=>['required', 'numeric',            'regex:/^\d+(\.\d+)?$/'],
@@ -73,6 +73,51 @@ class FoodsController extends Controller
     }
       
    }
+
+
+
+   public function update(Request $request, $id){
+    
+    $user=Auth::user();
+    $food =Foods::findOrFail($id);
+
+    if($user &&($user->is_admin ||$user->is_superadmin)){
+
+        $validatedData=$request->validate([
+            'nameOfFood'=>['required','string','max:255', 'regex: /^[a-zA-Z\s]{2,}$/'],
+            'category'=>['required','string', 'max:255',  'regex:/^[A-Za-z\s]{2,}$/'],
+            'proteins'=>['required','numeric',             'regex: /^\d+(\.\d+)?$/'],
+            'vitamins'=>['required' , 'in:a,b,c,d,e'],
+            'calories'=>['required', 'numeric',            'regex:/^\d+(\.\d+)?$/'],
+            'carbohydrates'=>['required','numeric',        'regex:/^\d+(\.\d+)?$/'],
+
+        ]);
+
+        $food->nameOfFood=$validatedData['nameOfFood'];
+        $food->category=$validatedData['category'];
+        $food->proteins=$validatedData['proteins'];
+        $food->vitamins=$validatedData['vitamins'];
+        $food->calories=$validatedData['calories'];
+        $food->carbohydrates=$validatedData['carbohydrates'];
+
+        if($food->isDirty()){
+            $food->save();
+            return redirect()->route('dashboard-foods')->with('success','Food Updated Successfully.');
+        }else{
+            return redirect()->route('dashboard-foods')->with('info','No changes were made!');
+        }
+
+    }else{
+        return redirect()->back()->with('error', 'Unauthorized Action!');
+    }
+
+   }
+
+   
+
+
+
+
 
 
    public function delete($id){
