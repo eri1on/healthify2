@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/dashboard-foods.css">
 </head>
 <body>
     @if(session('success'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
@@ -36,7 +37,6 @@
    <thead>
 
     <tr>
-        <th>Food Id</th>
         <th>Name Of Food</th>
         <th>Category</th>
         <th>Proteins</th>
@@ -48,14 +48,14 @@
    <tbody>
     @foreach($allFoods as $food) 
     <tr>
-        <td>{{$food->food_id}}</td>
+        
         <td>{{$food->nameOfFood}}</td>
         <td>{{$food->category}}</td>
         <td>{{$food->proteins}}</td>
-        <td>{{$food->Vitamins}}</td>
+        <td>{{$food->vitamins}}</td>
         <td>{{$food->calories}}</td>
-        <td>{{$food->Carbohydrates}}</td>
-        <td> <a href="{{route('admin-food-edit',$food->food_id)}}" class="btn btn primary">Edit </a></td>
+        <td>{{$food->carbohydrates}}</td>
+        <td> <a href="{{route('admin-food-edit',$food->food_id)}}" class="btn btn-primary">Edit </a></td>
         <td> <form action="{{route('admin-food-delete',$food->food_id)}}" method ="POST" style="display:inline-block">
             @csrf
             @method('DELETE')
