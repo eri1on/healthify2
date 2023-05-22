@@ -1,7 +1,7 @@
 function validateForm(){
 
-    const nameOfFoodRegex =/^[A-Za-z]{2,}$/;
-    const categoryRegex = /^[A-Za-z]{2,}$/;
+    const nameOfFoodRegex = /^[a-zA-Z\s]{2,}$/;
+    const categoryRegex = /^[A-Za-z\s]{2,}$/;
     const proteinRegex =  /^[0-9]+$/;
     const vitaminsRegex = /^[a-e]$/;
     const caloriesRegex = /^\d+(\.\d+)?$/;

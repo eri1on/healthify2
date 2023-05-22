@@ -1,7 +1,7 @@
 function userProfileInfoValidation(){
 
 
-    const nameRegex= /^[a-zA-z]{2,}/;
+    const nameRegex=  /^[a-zA-Z\s]{2,}$/;
     const emailRegex= /^[a-z0-9]+([_.-][a-z0-9]+)*@[a-z0-9]+([.-][a-z0-9]+)*\.[a-z]{2,3}$/;
     const passwordRegex=/^.{8,}$/;
     const ageRegex=/^\d{2}$/;
