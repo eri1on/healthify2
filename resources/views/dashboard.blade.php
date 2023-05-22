@@ -28,6 +28,7 @@
 <button id="nav-btn" class="btn btn-info" ><a href="{{route('userinfoshow')}}">USERS</a></button>
 <br>
 <button id="btn-addFood"class="btn btn-info" ><a href="{{route('showCreateFoodForm')}}">ADD FOOD</a></button>
+<button id="btn-updateFood"class="btn btn-info" ><a href="{{route('dashboard-foods')}}">UPDATE FOOD</a></button>
 </div>
 @else
 <div class="alert alert-danger">
