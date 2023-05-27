@@ -133,20 +133,12 @@ class FoodsController extends Controller
 
 
 
+   
 
 
+ 
 
-    //this method displayes all the foods in the view called 'select-foods.blade.php'
-    public function getFoods(){
-        $user=Auth::user();
-
-        $allFoods=Foods::all();
-
-        return view('select-food',compact('allFoods'));
-    }
-
-    /* ////////////////////////////////////////////////////////////////////////////////////////    */
-
+ 
 
 
 
