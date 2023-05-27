@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\DietController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,15 +65,20 @@ Route::middleware('auth')->group(function () {
     // --------------------------
     Route::get('/foods/create',[FoodsController::class,'showForm'])->name('showCreateFoodForm');//calls a method in order to display the form to create foods
     Route::post('/foods',[FoodsController::class,'store'])->name('foods.store');//insert foods into database
-    Route::get('/selectFood',[FoodsController::class,'getFoods'])->name('select-food');//display all the fodds from database into a view called select-foods
+    Route::get('/selectFood',[DietController::class,'index'])->name('select-food');//display all the fodds from database into a view called select-foods
     
     Route::get('/dashboard',[dashboardController::class,'showDashboardDetails'])->name('dashboard');//calls a method in order to display the dashbaord page
-
+     
    // Routes for update and delete foods
     Route::get('/dashboard-foods',[FoodsController::class,'getAllFoods'])->name('dashboard-foods');
     Route::get('/admin-food-edit/{id}',[FoodsController::class,'edit'])->name('admin-food-edit');
     Route::put('/admin-food-update/{id}',[FoodsController::class,'update'])->name('admin-food-update');
     Route::delete('/admin-food-delete/{id}',[FoodsController::class,'delete'])->name('admin-food-delete');
+
+
+    // --------------------------------------------------These are Routes when 'form' from select-food is submitted-------------
+    
+    Route::post('/startDiet',[DietController::class,'saveDiet'])->name('startUserDiet');
     
 });
 
