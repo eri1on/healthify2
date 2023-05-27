@@ -54,7 +54,7 @@
     Healthy food, healthy you. Learn how proper nutrition can improve your life.
 </p>
 
-<button class="create-diet-btn"><a href="#">Create Your Diet</a></button>
+<button class="create-diet-btn"><a href="{{route('select-food')}}">Create Your Diet</a></button>
 </div>
 
 
