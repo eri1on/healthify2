@@ -1,18 +1,39 @@
+
+
 .top-div {
   text-align: center;
   margin-top: 50px;
+  box-shadow: 0px 4px 6px rgba(0, 131, 212, 0.5);
+  margin:0 auto;
+  background-image: url('../img/human-running-removebg-preview.png');
+  background-repeat: no-repeat;
+  background-position-x: 900px;
+
 }
+
+
 
 h5 {
   font-size: 28px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  margin-top: 20px;
   color: #333;
   text-transform: uppercase;
+ 
+  
+}
+h4{
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: left;
+ 
 }
 
 .top-div p {
-  font-size: 16px;
+  font-size:medium;
   color: #777;
   margin-bottom: 80px;
 
@@ -20,10 +41,11 @@ h5 {
 
 
 label {
-  font-weight: bold;
+  font-weight: 700;
   margin-right: 10px;
-  color: #555;
+  color:midnightblue;
   margin-left:10px;
+
 }
 #foods-container {
   margin-bottom: 20px;
@@ -33,7 +55,7 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 label {
@@ -46,10 +68,13 @@ label {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 131, 212, 0.5);
+  
 }
 
 .buttons {
   margin-top: 20px;
+  padding:20px;
 }
 
 #add-food-row {
@@ -64,7 +89,14 @@ label {
   cursor: pointer;
   margin-right: 10px;
 }
+#add-food-row:hover{
 
+  background-color:darkturquoise;
+}
+
+.btn-create:hover{
+  background-color: red;
+}
 .btn-create {
   padding: 10px 20px;
   background-color: #4caf50;
