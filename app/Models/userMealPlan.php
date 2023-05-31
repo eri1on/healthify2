@@ -19,6 +19,12 @@ class userMealPlan extends Model
          'fk_signUp_id',
          'fk_food_id',
          'fk_diet_id',
-
+         'personalized_calories',
      ];
+
+
+     public function food()
+{
+    return $this->belongsTo(Foods::class, 'fk_food_id');
+}
 }
