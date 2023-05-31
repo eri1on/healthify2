@@ -5,6 +5,7 @@ use App\Http\Controllers\userController;
 use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\DietController;
+use App\Http\Controllers\ShowDietController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,6 +80,8 @@ Route::middleware('auth')->group(function () {
     // --------------------------------------------------These are Routes when 'form' from select-food is submitted-------------
     
     Route::post('/startDiet',[DietController::class,'saveDiet'])->name('startUserDiet');
+    //----------------------------This route will be user to call a method which will display the current auth user diet.//
+    Route::get('/showUserDiet',[ShowDietController::class,'showDiet'])->name('showDiet');
     
 });
 
