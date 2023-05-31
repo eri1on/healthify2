@@ -35,7 +35,7 @@ function valid() {
     var validDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
     for (var i = 0; i < days.length; i++) {
         if (!validDays.includes(days[i].value.toLowerCase())) {
-            alert('Invalid day of the week. Please enter a valid day (e.g., Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday).');
+            errorDiv.innerText="Invalid day of the week. Please enter a valid day (e.g., Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday).";
             return false;
         }
     }
@@ -44,7 +44,7 @@ function valid() {
     var validMealTypes = ['breakfast', 'lunch', 'dinner', 'snacks'];
     for (var i = 0; i < mealTypes.length; i++) {
         if (!validMealTypes.includes(mealTypes[i].value.toLowerCase())) {
-            alert('Invalid meal type. Please enter a valid meal type (e.g., Breakfast, Lunch, Dinner, Snacks).');
+            errorDiv.innerText="Invalid meal type. Please enter a valid meal type (e.g., Breakfast, Lunch, Dinner, Snacks).";
             return false;
         }
     }
