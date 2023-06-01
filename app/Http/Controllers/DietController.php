@@ -61,7 +61,7 @@ class DietController extends Controller
     }
 
     // Redirect or show a success message
-    return redirect()->back()->with('success', 'Your diet has been created successfully.');
+    return redirect()->route('showDiet')->with('success', 'Your diet has been created successfully.');
 }
 
 
