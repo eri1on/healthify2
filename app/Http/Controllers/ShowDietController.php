@@ -22,7 +22,7 @@ class ShowDietController extends Controller
        }else{
          $diet = UserMealPlan::with('food')
             ->where('fk_signup_id', $user->id)
-            ->orderBy('day_of_week')
+            ->orderByRaw("FIELD(day_of_week, 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')")
             ->get();
             
              return view('user-diet',compact('diet'));
