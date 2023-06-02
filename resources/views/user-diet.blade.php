@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="{{asset('css/user-diet.css')}}">
 </head>
 <body>
+    @if(session('error'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
     <div class="table-container">
     <table>
         <thead style="color:#5C8984;  position: sticky;">
@@ -61,6 +66,7 @@
 
     </table>
     </div>
+    <a href="{{route('updateMyDiet')}}"><button class="btn btn-primary">Update My Diet</button></a>
 </body>
 </html>
 
