@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/login', function () {
         return view('auth.login');
     })->name('login');
+
+   
    
     /*These are  user 'ProfileController' Routes,Where these methods can be used to allow  user to edit,update or delete their account*/
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -80,8 +82,15 @@ Route::middleware('auth')->group(function () {
     // --------------------------------------------------These are Routes when 'form' from select-food is submitted-------------
     
     Route::post('/startDiet',[DietController::class,'saveDiet'])->name('startUserDiet');
-    //----------------------------This route will be user to call a method which will display the current auth user diet.//
+    //----------------------------This route will  call a method which will display the current auth user diet.//
     Route::get('/showUserDiet',[ShowDietController::class,'showDiet'])->name('showDiet');
+
+    // ---------------------------This route will call the 'update' method which will allow user to update their diet.--
+    Route::get('/updateDiet',[DietController::class,'index2'])->name('updateMyDiet');//this returns the 'view'
+
+    Route::put('/UpdateDiet',[DietController::class,'updateDiet'])->name('updateDiet');//this calls the update method
+
+
     
 });
 
