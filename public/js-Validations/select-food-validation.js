@@ -10,9 +10,9 @@ $(document).ready(function() {
     });
 
     $('#diet-form').submit(function(e) {
-        if ($('.food-row').length < 10 || $('.food-row').length > 20) {
+        if ($('.food-row').length < 20 || $('.food-row').length > 30) {
             e.preventDefault();
-            $('#error-message').text('Please select between 10 and 20 foods!');
+            $('#error-message').text('Please select  between 20 and 30 foods!');
         }
     });
 });
