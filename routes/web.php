@@ -6,6 +6,7 @@ use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\ShowDietController;
+use App\Http\Controllers\adminDietController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,8 +91,13 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/UpdateDiet',[DietController::class,'updateDiet'])->name('updateDiet');//this calls the update method
 
+    Route::delete('/deleteMyDiet/{id}',[DietController::class,'destroyDiet'])->name('deleteDiet');
 
-    
+
+    // -------------------------------- this route is for admin and superadmins to delete diets of the users--
+    Route::get('/dashboard-usersDiet',[adminDietController::class,'showUsersDiets'])->name('admin-diet-dashboard');
+    Route::delete('/deleteUserDiet/{id}',[adminDietController::class,'deleteDiet'])->name('deleteUserDiet');
+
 });
 
 require __DIR__.'/auth.php';
