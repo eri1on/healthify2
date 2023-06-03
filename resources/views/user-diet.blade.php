@@ -17,6 +17,14 @@
         {{ session('error') }}
     </div>
 @endif
+@if(session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+@endif
+
+
+
     <div class="table-container">
     <table>
         <thead style="color:#5C8984;  position: sticky;">
@@ -28,6 +36,7 @@
 <th>Proteins</th>
 <th>Carbohydrates</th>
 <th>Daily Calories</th>
+<th>Grams</th>
 
         </thead>
 
@@ -52,7 +61,7 @@
                     <span style="color:green; font-weight:700; font-size:small; text-transform: uppercase;">({{$userDiet->day_of_week}})</span><br>  <br><br></td>
                   
                 @endif
-                
+                <td style="color:midnightblue;font-size:large">{{$userDiet->personalized_grams}}</td>
             </tr>
        
         @php
@@ -66,7 +75,17 @@
 
     </table>
     </div>
-    <a href="{{route('updateMyDiet')}}"><button class="btn btn-primary">Update My Diet</button></a>
+  
+    <a href="{{route('updateMyDiet')}}"><button class="btn btn-primary">Edit My Diet</button></a>
+    @if ($allDiet)
+    <form method="POST" action="{{ route('deleteDiet', $allDiet->diet_id) }}" onsubmit="return confirm('Are you sure you want to delete your diet?');">
+        @method('DELETE')
+        @csrf
+        <button type="submit" class="btn btn-danger">Delete My Diet</button>
+    </form>
+@endif
+
+
 </body>
 </html>
 
