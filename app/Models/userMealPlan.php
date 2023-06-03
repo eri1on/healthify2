@@ -20,6 +20,7 @@ class userMealPlan extends Model
          'fk_food_id',
          'fk_diet_id',
          'personalized_calories',
+         'personalized_grams',
      ];
 
 
