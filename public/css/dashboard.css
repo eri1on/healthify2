@@ -13,6 +13,7 @@
 
 #btn-addFood,
 #btn-updateFood,
+#btn-ManageDiet,
 #nav-btn {
   font-weight: 700;
   width: 170px;
@@ -29,6 +30,7 @@
 
 #btn-addFood a,
 #btn-updateFood a,
+#btn-ManageDiet a,
 #nav-btn a {
   text-decoration: none;
   color: #fff;
@@ -36,6 +38,7 @@
 
 #btn-addFood:hover,
 #btn-updateFood:hover,
+#btn-ManageDiet:hover,
 #nav-btn:hover {
   background-color: #303f9f;
 }

@@ -1,0 +1,29 @@
+body{
+    background-color: #F7F7F7;
+    color:#333;
+    padding:20px;
+}
+
+.top-div{
+    max-width:500px;
+    max-height:fit-content;
+    margin:0 auto;
+    background-color:#fff;
+    box-shadow: 0 0 1.25rem rgba(3, 48, 71, 0.788);
+}
+
+table{
+    border-collapse: collapse;
+}
+
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th{
+    color:midnightblue;
+}

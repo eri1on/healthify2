@@ -1,119 +1,98 @@
-
-
 .top-div {
-  text-align: center;
-  margin-top: 50px;
-  box-shadow: 0px 4px 6px rgba(0, 131, 212, 0.5);
-  margin:0 auto;
-  background-image: url('../img/human-running-removebg-preview.png');
-  background-repeat: no-repeat;
-  background-position-x: 900px;
-
-}
-
-
-
-h5 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 40px;
-  margin-top: 20px;
-  color: #333;
-  text-transform: uppercase;
- 
-  
-}
-h4{
-  font-size: medium;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-  text-align: left;
- 
-}
-
-.top-div p {
-  font-size:medium;
-  color: #777;
-  margin-bottom: 80px;
-
-}
-
-
-label {
-  font-weight: 700;
-  margin-right: 10px;
-  color:midnightblue;
-  margin-left:10px;
-
-}
-#foods-container {
-  margin-bottom: 20px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .food-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-label {
-  font-weight: bold;
+.food-row label {
+  flex-basis: 100px;
   margin-right: 10px;
 }
 
 .select-1 {
-  margin-right: 10px;
-  padding: 5px;
+  padding: 8px 12px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0px 4px 6px rgba(0, 131, 212, 0.5);
-  
 }
 
 .buttons {
-  margin-top: 20px;
-  padding:20px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
 
 #add-food-row {
-  font-size: 24px;
-  font-weight: bold;
-  background-color: #4caf50;
-  color: #fff;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 5px;
   border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
   margin-right: 10px;
+  cursor: pointer;
+  margin-left:30px;
 }
 #add-food-row:hover{
-
-  background-color:darkturquoise;
+  background-color: rgb(30, 68, 255);
 }
 
-.btn-create:hover{
-  background-color: red;
-}
 .btn-create {
   padding: 10px 20px;
-  background-color: #4caf50;
-  color: #fff;
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
   cursor: pointer;
+}
+.btn-create:hover{
+  background-color: rgb(30, 68, 255);
+}
+
+
+label{
+  margin-left:30px;
 }
 
 .errorDiv {
   margin-top: 20px;
+  font-weight: 600;
 }
 
 #error-message {
-  font-weight: bold;
+  color: red;
 }
 
 #errorDiv {
-  font-weight: bold;
+  color: brown;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li p {
+  font-size: large;
+  color: midnightblue;
+  text-transform: uppercase;
+  font-family:monospace;
+  font-size: small;
+}
+
+ul li p.note {
+  color: midnightblue;
+  text-transform: uppercase;
+  margin-top: 0;
 }
