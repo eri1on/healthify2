@@ -95,8 +95,13 @@ Route::middleware('auth')->group(function () {
 
 
     // -------------------------------- this route is for admin and superadmins to delete diets of the users--
-    Route::get('/dashboard-usersDiet',[adminDietController::class,'showUsersDiets'])->name('admin-diet-dashboard');
-    Route::delete('/deleteUserDiet/{id}',[adminDietController::class,'deleteDiet'])->name('deleteUserDiet');
+    Route::get('/dashboard-usersDiet',[adminDietController::class,'showUsersDiets'])->name('admin-diet-dashboard');//return a view
+    Route::delete('/deleteUserDiet/{id}',[adminDietController::class,'deleteDiet'])->name('deleteUserDiet');// delete's the diet
+
+    Route::get('/adminDietEdit/{id}',[adminDietController::class,'editDiet'])->name('adminEditDiet');
+
+
+    
 
 });
 
