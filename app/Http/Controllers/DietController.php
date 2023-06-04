@@ -204,10 +204,10 @@ public function updateDiet(Request $request)
 {
     // Validate the form data
     $request->validate([
-        'foods' => 'required|array|min:10|max:20',
-        'meal_types' => 'required|array|min:10|max:20',
+        'foods' => 'required|array|min:20|max:30',
+        'meal_types' => 'required|array|min:20|max:30',
         'meal_types.*' => 'required|in:breakfast,lunch,dinner,snacks',
-        'days' => 'required|array|min:10|max:20',
+        'days' => 'required|array|min:20|max:30',
         'days.*' => 'required|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
     ]);
 
@@ -217,14 +217,14 @@ public function updateDiet(Request $request)
 
     // Retrieve the user's current diet based on the current week
     $user = Auth::user();
-    $diet = UserDiet::where('fk_signUp_id', $user->id)
+    $diet = userDiet::where('fk_signUp_id', $user->id)
         ->whereDate('week_start_date', '<=', now())
         ->whereDate('week_end_date', '>=', now())
         ->first();
 
     if ($diet) {
         // Delete the existing meal plans for the current diet
-        UserMealPlan::where('fk_diet_id', $diet->diet_id)->delete();
+        userMealPlan::where('fk_diet_id', $diet->diet_id)->delete();
 
         $totalCalories = 0;
 
