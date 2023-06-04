@@ -74,7 +74,7 @@
 
 </div>
 <ul>
-<li><p style="font-size:large; color:midnightblue; text-transform: uppercase;">Note! you can only choose between 10 to 20 foods, Otherwise you cannot create your Diet</p></li>
+<li><p style="font-size:large; color:midnightblue; text-transform: uppercase;">Note! you can only choose between 20 to 30 foods, Otherwise you cannot create your Diet</p></li>
 <li><p style="color:midnightblue; text-transform: uppercase; ">Once you submit the diet you cannot change the foods before 1 week has passed,<br>after 1 week you can make changes to you diet</p></li>
 </ul>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
