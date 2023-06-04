@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  
   <header>
  <div class="header-top-div">
 
@@ -41,7 +42,23 @@
 
 <main>
 
-
+    <div class="text-background">
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    
+    @if(session('error'))
+        <div class="alert alert-danger" style="background-color: red; color:white">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if (session('info'))
+        <div class="alert alert-info">
+            {{ session('info') }}
+        </div>
+    @endif
 
 <section class="section-1">
 
