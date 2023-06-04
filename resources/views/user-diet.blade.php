@@ -35,8 +35,8 @@
 <th>Vitamin</th>
 <th>Proteins</th>
 <th>Carbohydrates</th>
-<th>Daily Calories</th>
 <th>Grams</th>
+<th>Daily Calories</th>
 
         </thead>
 
@@ -56,12 +56,14 @@
                 <td>{{ $userDiet->food->vitamins }}</td>
                 <td>{{ $userDiet->food->proteins }}</td>
                 <td>{{ $userDiet->food->carbohydrates }}</td>
+                <td style="color:midnightblue;font-size:large">{{$userDiet->personalized_grams}}</td>
                 @if ($userDiet->day_of_week !== $previousDay)
-                <td style="color:midnightblue;font-size:large">{{ $userDiet->personalized_calories }}
-                    <span style="color:green; font-weight:700; font-size:small; text-transform: uppercase;">({{$userDiet->day_of_week}})</span><br>  <br><br></td>
+                <td style="color:midnightblue;font-size:large;">{{ $userDiet->personalized_calories }}
+                    <span style="color:green; font-weight:700; font-size:small; text-transform: uppercase;">({{$userDiet->day_of_week}})</span><br>  <br><br>
+                </td>
                   
                 @endif
-                <td style="color:midnightblue;font-size:large">{{$userDiet->personalized_grams}}</td>
+                
             </tr>
        
         @php
@@ -76,9 +78,9 @@
     </table>
     </div>
   
-    <a href="{{route('updateMyDiet')}}"><button class="btn btn-primary">Edit My Diet</button></a>
+    <a href="{{route('updateMyDiet')}}"><button id="btn-update"class="btn btn-primary">Edit My Diet</button></a>
     @if ($allDiet)
-    <form method="POST" action="{{ route('deleteDiet', $allDiet->diet_id) }}" onsubmit="return confirm('Are you sure you want to delete your diet?');">
+    <form class="delete-form"method="POST" action="{{ route('deleteDiet', $allDiet->diet_id) }}" onsubmit="return confirm('Are you sure you want to delete your diet?');">
         @method('DELETE')
         @csrf
         <button type="submit" class="btn btn-danger">Delete My Diet</button>
