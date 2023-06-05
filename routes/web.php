@@ -9,6 +9,7 @@ use App\Http\Controllers\ShowDietController;
 use App\Http\Controllers\adminDietController;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,6 +55,8 @@ Route::middleware('auth')->group(function () {
     })->name('login');
 
    
+    
+   
    
     /*These are  user 'ProfileController' Routes,Where these methods can be used to allow  user to edit,update or delete their account*/
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -98,10 +101,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard-usersDiet',[adminDietController::class,'showUsersDiets'])->name('admin-diet-dashboard');//return a view
     Route::delete('/deleteUserDiet/{id}',[adminDietController::class,'deleteDiet'])->name('deleteUserDiet');// delete's the diet
 
-    Route::get('/adminDietEdit/{id}',[adminDietController::class,'editDiet'])->name('adminEditDiet');
+    Route::get('/adminDietEdit/{id}/{userId}',[adminDietController::class,'editDiet'])->name('adminEditDiet');
+
+    Route::put('/updateUserDiet/{id}',[adminDietController::class,'updateDiet'])->name('updateDietAdmin');
 
 
-    
+  
 
 });
 
