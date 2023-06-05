@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/adminDietEdit.css') }}">
+<link rel="stylesheet" href="{{ asset('css/select-food.css') }}">
 <div class="top-div">
     <div class="text-background">
         @if(session('success'))
@@ -24,7 +24,7 @@
 
     <h2>Update User Diet</h2>
 
-    <form id="diet-form" method="POST"  onsubmit="return valid();">
+    <form id="diet-form" method="POST" action="{{route('updateDietAdmin',$findUser->id)}}" onsubmit="return valid();">
         @method('PUT')
         @csrf
         <div id="foods-container">
