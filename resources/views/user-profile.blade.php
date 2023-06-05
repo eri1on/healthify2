@@ -13,6 +13,8 @@
    
 </head>
 <body>
+ <a href="{{route('showDiet')}}" >  <button class="btn btn-info" style="color:white;width:150px;margin-left:20px;">
+    My Diet</button></a>
     <form class="main-form" method="POST" action="{{ route('profile.update') }}" onsubmit=" return userProfileInfoValidation();">
         @csrf
         @method('PATCH')
