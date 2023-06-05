@@ -32,7 +32,7 @@
     <td>{{$diet->fk_signUp_id}}</td>
 
     <td>{{$diet->diet_id}}</td>
-    <td> <a href="{{route('adminEditDiet',$diet->diet_id)}}"><button class="btn btn-primary">Edit Diet</button> </a>    </td>
+    <td> <a href="{{route('adminEditDiet',['id' => $diet->diet_id, 'userId' => $diet->fk_signUp_id])}}"><button class="btn btn-primary">Edit Diet</button> </a>    </td>
     <td>
     <form method="POST" action="{{route('deleteUserDiet',$diet->diet_id)}}" onsubmit="return confirm('Are you sure you want to delete this diet?');">
        @method('DELETE')
