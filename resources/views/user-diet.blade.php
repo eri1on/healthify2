@@ -77,6 +77,8 @@
 
     </table>
     </div>
+
+    <P>Before you update your diet Please keep your profile data up to date to get the best results for your diet data</p>
   
     <a href="{{route('updateMyDiet')}}"><button id="btn-update"class="btn btn-primary">Edit My Diet</button></a>
     @if ($allDiet)
@@ -85,6 +87,8 @@
         @csrf
         <button type="submit" class="btn btn-danger">Delete My Diet</button>
     </form>
+
+    <a href="{{route('userprofileshow')}}"><button id="btn-profile" class="btn btn-info">Edit Profile</button></a>
 @endif
 
 
