@@ -137,29 +137,7 @@ public function calculatePersonalizedGrams($user, $totalCalories, $foodCalories)
 
 
 
-/*
-public function calculatePersonalizedGrams($user, $totalCalories, $foodCalories)//---------------------------
-{
-    $weight = $user->weight;
-    $height = $user->height;
-    $age = $user->age;
-    $gender = $user->gender;
-    $activity = $user->activity;
-    $goal = $user->goal;
 
-    // Calculate Basal Metabolic Rate (BMR) based on gender
-    if ($gender == 'male') {
-        $bmr = 88.362 + (13.397 * $weight) + (4.799 * $height) - (5.677 * $age);
-    } else {
-        $bmr = 447.593 + (9.247 * $weight) + (3.098 * $height) - (4.330 * $age);
-    }
-
-    // Calculate grams based on food calories and total calories
-    $grams = ($foodCalories /  $totalCalories) * 100;
-
-    return $grams;
-}
-*/
 
 
 
