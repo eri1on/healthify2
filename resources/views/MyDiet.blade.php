@@ -259,5 +259,19 @@
  
 </main>
 
+
+<footer class="footer-section">
+    <h2 class="contact-h2"> Feel free to Contact Us.<h2>
+    <div class="footer-container">
+      
+      <div class="contact-info">
+        <p>Email:  info@healthify@gmail.com</p>
+        <p>Phone: +1(888)1234-5678</p>
+        <p>Address: 123 Main Street, Prishtina, Kosova, 10000 </p>
+      </div>
+      <button class="contact-button"><a href="../contact-us">Contact Us</a></button>
+    </div>
+  </footer>
+
 </body>
 </html>
