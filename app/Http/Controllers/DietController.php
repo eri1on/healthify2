@@ -11,6 +11,7 @@ use App\Models\Foods;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
+
 class DietController extends Controller
 {
     public function index()
@@ -34,11 +35,14 @@ class DietController extends Controller
 
     public function saveDiet(Request $request)
 {
+   
 
     $existingDiet = UserDiet::where('fk_signUp_id', auth()->user()->id)->first();
         if ($existingDiet) {
             return redirect()->route('showDiet')->with('info', 'You have already created a diet. You can simply Update it!.');
         }
+
+        
 
     // Validate the form data
     $request->validate([
@@ -47,11 +51,19 @@ class DietController extends Controller
         'meal_types.*' => 'required|in:breakfast,lunch,dinner,snacks',
         'days' => 'required|array|min:20|max:30',
         'days.*' => 'required|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
+     /*   'portion_size' => 'required|array',
+        'portion_size.*' => 'required|in:100,150,200',
+        */
+        
     ]);
 
     $foods = $request->input('foods');
     $mealTypes = $request->input('meal_types');
     $days = $request->input('days');
+
+    /*
+    $portion=$request->input('portion_size');
+    */
 
     // Save the user's diet and meal plan to the database
     $diet = new UserDiet();
@@ -60,13 +72,15 @@ class DietController extends Controller
     $diet->week_end_date = now()->addDays(7);
     $diet->save();
 
-    $totalCalories = 0;
 
+    $totalCalories = 0;
+    
     foreach ($foods as $index => $foodId) {
         
 
        $food=Foods::find($foodId);
        $totalCalories += $food->calories;
+      
        //$personalizedCalories = calculatePersonalizedCalories(auth()->user(),$totalCalories);
        
         $mealPlan = new UserMealPlan();
@@ -75,9 +89,24 @@ class DietController extends Controller
         $mealPlan->fk_signUp_id = auth()->user()->id;
         $mealPlan->fk_food_id = $foodId;
         $mealPlan->fk_diet_id = $diet->diet_id;
-        $mealPlan->personalized_calories = $this->calculatePersonalizedCalories(auth()->user(), $totalCalories);
-        $mealPlan->personalized_grams = $this->calculatePersonalizedGrams(auth()->user(), $totalCalories, $food->calories);//------------------
+        $mealPlan->personalized_calories = $this->calculatePersonalizedCalories(auth()->user(), $totalCalories); // Nuk ka venoj ti dergohet $totalClories ne kete metode !!!!!
+
+       
+        $mealPlan->carbohydratesGram=$this->calculateCarbohydratesGrams($totalCalories);
+        $mealPlan->proteinGram=$this->calculateProteinGram($totalCalories);
+        
+/*
+        if(isset($portion[$index])){
+        $mealPlan->portion_size=$portion[$index];
+        }else{
+            $mealPlan->portion_size=100;
+        }
+        $mealPlan->personalized_grams = $this->calculatePersonalizedGrams(auth()->user(), $food->calories,$food->carbohydrates,$food->proteins,$portion);
+        */
+
+
         $mealPlan->save();
+        
     }
 
     // Redirect or show a success message
@@ -90,7 +119,7 @@ class DietController extends Controller
 
 
 
-function calculatePersonalizedCalories($user,$TCalories)
+public function calculatePersonalizedCalories($user,$TCalories)
 {
     $weight = $user->weight;
     $height = $user->height;
@@ -127,18 +156,48 @@ function calculatePersonalizedCalories($user,$TCalories)
 
 
 
-public function calculatePersonalizedGrams($user, $totalCalories, $foodCalories)
-{
-    // Calculate grams based on food calories and total calories for the day
-    $grams = ($foodCalories / $totalCalories) * 100;
 
-    return $grams;
+
+
+
+
+
+
+public function calculateCarbohydratesGrams($calories){
+
+    $carbo= $this->calculatePersonalizedCalories(auth()->user(),$calories);
+    
+    $carbohydratePercentage = 50;
+    $carbohydrateRatio = $carbohydratePercentage / 100;
+    $carbohydrateGrams = ( $carbo* $carbohydrateRatio) / 4;
+    return $carbohydrateGrams;
+}
+
+public function calculateProteinGram($calories){
+    $protein= $this->calculatePersonalizedCalories(auth()->user(),$calories);
+
+    $proteinPercentage = 30;
+    $proteinRatio = $proteinPercentage / 100;
+    $proteinGrams = ($protein * $proteinRatio) / 4;
+    return $proteinGrams;
 }
 
 
 
+/*
 
+public function calculatePersonalizedGrams($user, $carbohydrates,$proteins, $foodCalories,$portionSize)
+{
+    // Calculate grams based on food calories and total calories for the day
+   
+    $foodNutritionalInfo = (float)$carbohydrates + (float)$proteins;
+    $portion = (float)$portionSize;
+    $grams = ($foodNutritionalInfo/$foodCalories) * $portion;
 
+    return $grams;
+    
+}
+*/
 
 
 
@@ -218,7 +277,14 @@ public function updateDiet(Request $request)
             $mealPlan->fk_food_id = $foodId;
             $mealPlan->fk_diet_id = $diet->diet_id;
             $mealPlan->personalized_calories = $this->calculatePersonalizedCalories($user, $totalCalories);
+            
+        $mealPlan->carbohydratesGram=$this->calculateCarbohydratesGrams($totalCalories);
+        $mealPlan->proteinGram=$this->calculateProteinGram($totalCalories);
+
+
+            /*
             $mealPlan->personalized_grams = $this->calculatePersonalizedGrams(auth()->user(), $totalCalories, $food->calories);
+            */
             $mealPlan->save();
         }
         $diet->week_start_date = now();
