@@ -8,11 +8,14 @@ use App\Models\User;
 use App\Models\userDiet;
 use App\Models\userMealPlan;
 use App\Models\Foods;
+use App\Http\Traits\DietCalculationsTrait;
 
 
 
 class adminDietController extends controller
 {
+    use DietCalculationsTrait;
+
 
 
     public function showUsersDiets(){
@@ -88,43 +91,8 @@ class adminDietController extends controller
 
     }
 
-    function calculatePersonalizedCalories($user,$TCalories)
-    {
-        $weight = $user->weight;
-        $height = $user->height;
-        $age = $user->age;
-        $gender = $user->gender;
-        $activity = $user->activity;
-        $goal = $user->goal;
     
-        // Calculate Basal Metabolic Rate (BMR) based on gender
-        if ($gender == 'male') {
-            $bmr = 88.362 + (13.397 * $weight) + (4.799 * $height) - (5.677 * $age);
-        } else {
-            $bmr = 447.593 + (9.247 * $weight) + (3.098 * $height) - (4.330 * $age);
-        }
-    
-        // Apply activity factor to BMR
-        $activityFactors = [
-            'low_activity' => 1.2,
-            'high_activity' => 1.725,
-        ];
-    
-        $activityFactor = $activityFactors[$activity];
-        $TCalories = $bmr * $activityFactor;
-    
-        // Adjust calories based on goal
-        if ($goal == 'lose_weight') {
-            $TCalories -= 500; // Subtract 500 calories for weight loss
-        }elseif ($goal == 'gain_weight'){
-            $TCalories += 500; // Add 500 calories for weight gain
-        }
-    
-        return $TCalories;
-    }
-    
-    
-    
+    /*
     public function calculatePersonalizedGrams($user, $totalCalories, $foodCalories)
     {
         // Calculate grams based on food calories and total calories for the day
@@ -132,7 +100,7 @@ class adminDietController extends controller
     
         return $grams;
     }
-
+*/
     
 
 public function updateDiet(Request $request,$userid)
@@ -175,7 +143,12 @@ public function updateDiet(Request $request,$userid)
             $mealPlan->fk_food_id = $foodId;
             $mealPlan->fk_diet_id = $diet->diet_id;
             $mealPlan->personalized_calories = $this->calculatePersonalizedCalories($user, $totalCalories);
+            $mealPlan->carbohydratesGram=$this->calculateCarbohydratesGrams($totalCalories);
+            $mealPlan->proteinGram=$this->calculateProteinGram($totalCalories);
+
+            /*
             $mealPlan->personalized_grams = $this->calculatePersonalizedGrams($user->id, $totalCalories, $food->calories);
+            */
             $mealPlan->save();
         }
         $diet->week_start_date = now();
