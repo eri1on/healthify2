@@ -30,13 +30,21 @@
         <thead style="color:#5C8984;  position: sticky;">
  <th>Category</th>
 <th>Food Item</th>
+
+<!-- <th>Portion Size</th>  !-->
+
 <th>Day Of Week</th>
 <th>Meal Type</th>
 <th>Vitamin</th>
 <th>Proteins</th>
 <th>Carbohydrates</th>
-<th>Grams</th>
+
+ <!-- <th>Grams</th>   !-->
+
+<th>Daily Proteins</th>
+<th>Daily Carbohydrates</th>
 <th>Daily Calories</th>
+
 
         </thead>
 
@@ -51,13 +59,25 @@
             <tr style="text-transform: uppercase;">
                 <td>{{ $userDiet->food->category }}</td>
                 <td>{{ $userDiet->food->nameOfFood }}</td>
+
+          <!--      <td> $userDiet->portion_size  </td>   !-->
+
                 <td>{{ $userDiet->day_of_week }}</td>
                 <td>{{ $userDiet->mealType }}</td>
                 <td>{{ $userDiet->food->vitamins }}</td>
                 <td>{{ $userDiet->food->proteins }}</td>
                 <td>{{ $userDiet->food->carbohydrates }}</td>
-                <td style="color:midnightblue;font-size:large">{{$userDiet->personalized_grams}}</td>
+                
+             <!--   <td style="color:midnightblue;font-size:large"> $userDiet->personalized_grams</td>    !-->
+
                 @if ($userDiet->day_of_week !== $previousDay)
+
+                <td>
+                    {{$userDiet->proteinGram }}
+                </td>
+                <td>{{$userDiet->carbohydratesGram}}</td>
+
+
                 <td style="color:midnightblue;font-size:large;">{{ $userDiet->personalized_calories }}
                     <span style="color:green; font-weight:700; font-size:small; text-transform: uppercase;">({{$userDiet->day_of_week}})</span><br>  <br><br>
                 </td>
