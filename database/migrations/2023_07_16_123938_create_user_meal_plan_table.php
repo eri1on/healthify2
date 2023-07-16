@@ -19,7 +19,15 @@ return new class extends Migration
             $table->unsignedBigInteger('fk_food_id');
             $table->unsignedBigInteger('fk_diet_id');
             $table->float('personalized_calories');
+            /*
+            $table->float('portion_size');
+            
             $table->float('personalized_grams');
+            */
+            $table->float('proteinGram');
+
+            $table->float('carbohydratesGram');
+            
             $table->timestamps();
 
             $table->foreign('fk_signUp_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
