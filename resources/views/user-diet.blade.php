@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('content')
 
@@ -12,105 +11,89 @@
     <link rel="stylesheet" href="{{asset('css/user-diet.css')}}">
 </head>
 <body>
-    @if(session('error'))<!-- This will display a error message when a user who is not admin manages somehow to go to the dashboard page and tries to update or delete user account/info-->
+    @if(session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
     </div>
-@endif
-@if(session('info'))
+    @endif
+    @if(session('info'))
     <div class="alert alert-info">
         {{ session('info') }}
     </div>
-@endif
+    @endif
 
 
-
-    <div class="table-container">
-    <table>
-        <thead style="color:#5C8984;  position: sticky;">
- <th>Category</th>
-<th>Food Item</th>
-
-<!-- <th>Portion Size</th>  !-->
-
-<th>Day Of Week</th>
-<th>Meal Type</th>
-<th>Vitamin</th>
-<th>Proteins</th>
-<th>Carbohydrates</th>
-
- <!-- <th>Grams</th>   !-->
-
-<th>Daily Proteins</th>
-<th>Daily Carbohydrates</th>
-<th>Daily Calories</th>
+@php
 
 
-        </thead>
-
-        <tbody>
-            @php
-            $previousDay = null;
-        @endphp
+foreach($diet as $userDiet){
+    $totalProteins = $userDiet->proteinGram;
+    $totalCarbohydrates=$userDiet->carbohydratesGram;
+    $totalCalories=$userDiet->personalized_calories;
 
 
-            @foreach($diet as $userDiet)
-         
-            <tr style="text-transform: uppercase;">
-                <td>{{ $userDiet->food->category }}</td>
-                <td>{{ $userDiet->food->nameOfFood }}</td>
+}
 
-          <!--      <td> $userDiet->portion_size  </td>   !-->
-
-                <td>{{ $userDiet->day_of_week }}</td>
-                <td>{{ $userDiet->mealType }}</td>
-                <td>{{ $userDiet->food->vitamins }}</td>
-                <td>{{ $userDiet->food->proteins }}</td>
-                <td>{{ $userDiet->food->carbohydrates }}</td>
-                
-             <!--   <td style="color:midnightblue;font-size:large"> $userDiet->personalized_grams</td>    !-->
-
-                @if ($userDiet->day_of_week !== $previousDay)
-
-                <td>
-                    {{$userDiet->proteinGram }}
-                </td>
-                <td>{{$userDiet->carbohydratesGram}}</td>
+@endphp
 
 
-                <td style="color:midnightblue;font-size:large;">{{ $userDiet->personalized_calories }}
-                    <span style="color:green; font-weight:700; font-size:small; text-transform: uppercase;">({{$userDiet->day_of_week}})</span><br>  <br><br>
-                </td>
-                  
-                @endif
-                
-            </tr>
-       
-        @php
-            $previousDay = $userDiet->day_of_week;
-        @endphp
-      
-            @endforeach
+    <div class="daily-summary">
 
-        </tbody>
-
-
-    </table>
+        <div class="card-container">
+            <div class="card card-header summary-header">
+                <h5><b>Total Nutritional Values:</b> </h5>
+                <br>
+                <p style="font-style:italic"><strong>Daily Proteins:</strong> {{ $totalProteins }} <span >gram</span></p>
+                <p style="font-style:italic"><strong>Daily Carbohydrates:</strong> {{ $totalCarbohydrates }} <span >gram</span></p>
+                <p style="font-style:italic"><strong>Daily Calories:</strong> {{  $totalCalories }}</p>
+            </div>
+        </div>
     </div>
 
-    <P>Before you update your diet Please keep your profile data up to date to get the best results for your diet data</p>
-  
-    <a href="{{route('updateMyDiet')}}"><button id="btn-update"class="btn btn-primary">Edit My Diet</button></a>
+
+
+    <div class="card-container">
+        @foreach($diet as $userDiet)
+
+       
+            <div class="card day-{{ $userDiet->day_of_week }}">
+                <div class="card-header" >
+                <b  style="color:#C51605" >    {{ strtoupper($userDiet->day_of_week) }}</b>
+                   <BR>
+                  <p style="font-style:italic">  {{ ($userDiet->food->nameOfFood) }}<p>
+                   
+                </div>
+                <div class="card-body">
+                    <p><strong>Category:</strong> {{ $userDiet->food->category }}</p>
+                    <p><strong>Day Of Week:</strong> {{ $userDiet->day_of_week }}</p>
+                    <p><strong>Meal Type:</strong> {{ $userDiet->mealType }}</p>
+                    <p><strong>Vitamin:</strong> {{ $userDiet->food->vitamins }}</p>
+                    <p><strong>Proteins:</strong> {{ $userDiet->food->proteins }} <span >gram</span></p>
+                    <p><strong>Carbohydrates:</strong> {{ $userDiet->food->carbohydrates }} <span >gram</span></p>
+     
+                   
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+ 
+  <div class="buttons">
+    <p>Before you update your diet, please keep your profile data up to date to get the best results for your diet data.</p>
+    <div class="space-btn">
+
+    <a href="{{route('updateMyDiet')}}"><button id="btn-update" class="btn btn-primary">Edit My Diet</button></a>
     @if ($allDiet)
-    <form class="delete-form"method="POST" action="{{ route('deleteDiet', $allDiet->diet_id) }}" onsubmit="return confirm('Are you sure you want to delete your diet?');">
+    <form class="delete-form" method="POST" action="{{ route('deleteDiet', $allDiet->diet_id) }}" onsubmit="return confirm('Are you sure you want to delete your diet?');">
         @method('DELETE')
         @csrf
         <button type="submit" class="btn btn-danger">Delete My Diet</button>
     </form>
-
     <a href="{{route('userprofileshow')}}"><button id="btn-profile" class="btn btn-info">Edit Profile</button></a>
-@endif
-
+    @endif
+    </div>
+  </div>
+   
 
 </body>
 </html>
