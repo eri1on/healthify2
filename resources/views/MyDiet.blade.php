@@ -28,7 +28,7 @@
     <button class="nav-btn"><a href="{{route('dashboard')}}">Dashboard</a></button>
     @endif
     <button class="nav-btn"> <a href="{{route('index')}}" >Home</a></button>
-    <button class="nav-btn"> <a href="{{route('userprofileshow')}}" >My Profile</a></button>
+   <button class="nav-btn"> <a href="{{route('userprofileshow')}}" >My Profile</a></button>
     <button class="nav-btn"> <a href="{{route('index')}}" >Blog</a></button>
     <button class="nav-btn"> <a href="{{route('index')}}" >FAQ</a></button>
 
