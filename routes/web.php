@@ -27,7 +27,14 @@ Route::get('/', function () {
 
 
 
+Route::get('/test',function(){
+    return view('test');
+})->name('test');
 
+
+Route::get('/personalDashboard',function(){
+    return view('user-personaldashboard');
+})->name('personaldashboard');
 
 Route::middleware('auth')->group(function () {
 
@@ -62,7 +69,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/user-profile',[ProfileController::class, 'show'])->name('userprofileshow');
+    Route::get('/personalDashboard',[ProfileController::class, 'show'])->name('userprofileshow');
 
     /*These will be 'Routes' for admin  'userController' where admin can use these methods to delete an accout or edit,update simple user's account*/
     Route::get('/user-info',[userController::class,'getData'])->name('userinfoshow'); //shows all users and all their info that are saved in database
