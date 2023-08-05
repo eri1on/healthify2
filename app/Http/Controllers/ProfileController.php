@@ -19,7 +19,7 @@ class ProfileController extends Controller
 
     public function show(){
         $user = Auth::user();
-        return view('user-profile', compact('user'));
+        return view('user-personaldashboard', compact('user'));
 
     }
     
