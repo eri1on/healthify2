@@ -5,13 +5,17 @@
 
 <link rel="stylesheet" href="{{asset('css/select-food.css')}}">
 <div class="top-div">
+    @livewireStyles
+
+   
+
    
 <form  id="diet-form" method="POST" action="{{ route('startUserDiet') }}" onsubmit="return valid();" >
    
     @csrf
     <div id="foods-container">
         
-       
+        
      
        
         <div class="food-row">
@@ -70,6 +74,8 @@
             <span class="error-message" style="color: red; font-weight: 600">{{ $message }}</span>
             @enderror
             
+
+
         </div>
         
     </div>
@@ -77,6 +83,7 @@
      <button type="button" id="add-food-row">+</button>
      <img src="../img/sandwich.png"  style="width:80px;">
     <button  class="btn-create"type="submit">Create My Diet</button></div>
+    
     
 </form>
 
@@ -92,6 +99,6 @@
 </ul>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{ asset('js-Validations/select-food-validation.js') }}"></script>
-
+  
 @endsection
 
