@@ -44,6 +44,7 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  
 }
 
 .card {
@@ -61,8 +62,9 @@ body {
 }
 
 .card-header h5{
-  color:#C51605;
+  color:#0E2954;
   text-decoration: underline;
+  font-family: sans-serif;
 }
 
 .card-header {
@@ -75,8 +77,32 @@ body {
   text-decoration: underline;
 }
 .card-body p {
-  margin: 5px 0;
+  margin: 15px 0;
+  font-family: sans-serif;
+  width:60%;
+  display: flex;
+
+  justify-content: space-between;
+  text-decoration: underline;
+
+ 
+
 }
+
+.foodname{
+
+  border:1px solid;
+  width:fit-content;
+  padding:5px 10px;
+  background-color: #468B97;
+  color:#fff;
+  border-style: none;
+  border-radius: 10px;
+  text-align: center;
+
+}
+
+
 .card-body span{
   color:#17a2b8;
   font-size: small;
@@ -91,11 +117,29 @@ body {
   font-size: medium;
 }
 
-.summary-header{
- width:100%;
- box-shadow: 0 0 1.25rem rgba(92, 228, 2, 0.788);
+.daily-summary{
+  width:100%;
+  display: flex;
+  justify-content: center;
+ 
 }
 
+.summary-header{
+ width:100%;
+ box-shadow: 0 0 1.25rem rgba(50, 200, 1, 0.288);
+ background-color: lightgreen;
+
+}
+
+.summary-header p{
+  font-family: sans-serif;
+  color:#0E2954;
+
+  font-weight: 500;
+  width:300px;
+  display: flex;
+  justify-content: space-between;
+}
 
 
 
@@ -118,6 +162,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 40px;
 }
 .buttons p{
   font-size: small;
@@ -130,6 +175,8 @@ body {
   justify-content: space-around;
   width:50%;
   margin:0 auto;
+
+  
 }
 
 /* Adding a background color for each day */
