@@ -31,7 +31,7 @@
     <div class="left-div-logo">
 
         <a href="/" > <img class="main-logo"src="../img/Healthify_LOGO.png" alt="logo"/> </a>
-       <a href="/"> <h4>Healthify<h4>
+       <a href="/"> <h4><span style="color:#379237">H</span>ealthify<h4>
      </a>
 
     </div>
