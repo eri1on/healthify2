@@ -525,6 +525,113 @@ font-family:'Times New Roman', Times, serif;
 
 /* --------------------------FOOTER SECTION ------------------------------*/
 
+
+
+
+.info-container {
+    height: 225px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #ecebeb, rgb(255, 255, 255));
+}
+
+.leftInfo {
+    height: 150px;
+    width: 500px;
+    margin-left: 100px;
+    font-family: Roboto, Arial;
+    font-size: 17px;
+}
+.infoHead {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: Roboto, Arial;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.midInfo {
+    margin-right: 25px;
+    height: 100px;
+    width: 300px;
+    text-align: center;
+   
+}
+
+.midInfo a {
+    padding-top: 15px; 
+    transform: scale(2);
+    text-decoration: none;
+    color: black;
+   
+}
+
+
+.midText {
+    font-family: Roboto, Arial;
+    font-size: 20px;
+    font-weight: 500;
+   
+}
+
+.rightInfo {
+    margin-bottom: 30px;
+    height: 100px;
+    margin-right: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.rightText {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: Roboto, Arial;
+    font-weight: 500;
+    font-size: 20px;
+}
+i {
+    padding-top: 10px;
+    transform: scale(1.2);
+    text-decoration: none;
+    color: black;
+    padding-left: 18px;
+}
+
+.footer {
+    padding-top: 12px;
+    font-family: Roboto, Arial;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* CSS Style for the footer section */
 .footer-section {
     background-color: #fff;
