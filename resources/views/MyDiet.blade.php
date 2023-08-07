@@ -260,18 +260,44 @@
 </main>
 
 
-<footer class="footer-section">
-    <h2 class="contact-h2"> Feel free to Contact Us.<h2>
-    <div class="footer-container">
-      
-      <div class="contact-info">
-        <p>Email:  info@healthify@gmail.com</p>
-        <p>Phone: +1(888)1234-5678</p>
-        <p>Address: 123 Main Street, Prishtina, Kosova, 10000 </p>
-      </div>
-      <button class="contact-button"><a href="../contact-us">Contact Us</a></button>
-    </div>
-  </footer>
+<div class="info-container">
 
+    <div class="leftInfo">
+
+       <div class="infoHead"><span style="color: rgb(42, 230, 42);">H</span>ealthify</div>
+
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet explicabo atque veniam facere sed corrupti architecto repudiandae distinctio, hic harum repellat laudantium dolor ullam! Dolorum quidem sit odit voluptatem laboriosam.
+
+    </div>
+
+    <div class="midInfo">
+
+       <div class="midText">Connect With Us<br><br></div>
+
+
+       <a href="#"   style="padding-right: 30px; margin-left: 25px;"><img style="width:30px" src="../img/facebook.svg"></a>
+       <a href="#"   style="padding-right: 30px;"><img style="width:30px" src="../img/instagram.svg"></a>
+       <a href="#"    style="padding-right: 30px;"><img style="width:30px"src="../img/google.svg"></a>
+      
+
+    </div>
+
+
+    <div class="rightInfo">
+
+       <div class="rightText">Contact Us</div>
+       <i class="fa fa-envelope"> - info@healthify@gmail.com <br></i>
+       <i class="fa fa-phone"> - 04*-***-***</i>
+
+    </div>
+
+ </div>
+
+
+ <footer class="footer">
+
+    &copy; Copyright 2023 | HEALTHIFY. Profesional Diet Application
+
+ </footer>
 </body>
 </html>
