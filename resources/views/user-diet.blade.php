@@ -67,8 +67,14 @@ foreach($diet as $userDiet){
        
             <div class="card day-{{ $userDiet->day_of_week }}">
                 <div class="card-header" >
+
+                    <div class="div-day">
                 <b  style="color:#0E2954" >    {{ strtoupper($userDiet->day_of_week) }}</b>
+
+                    </div>
+
                    <BR>
+                   
                   <p class="foodname"style="font-family: sans-serif">  {{strtoupper ($userDiet->food->nameOfFood) }}<p>
                    
                 </div>
