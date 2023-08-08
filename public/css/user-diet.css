@@ -75,6 +75,7 @@ body {
 
 .card-header b{
   text-decoration: underline;
+  text-align: center;
 }
 .card-body p {
   margin: 15px 0;
@@ -89,15 +90,20 @@ body {
 
 }
 
+.div-day{
+  width:100%;
+  text-align: center;
+}
+
 .foodname{
 
   border:1px solid;
   width:fit-content;
-  padding:5px 10px;
+  padding:0px 8px;
   background-color: #468B97;
   color:#fff;
   border-style: none;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
 
 }
@@ -127,7 +133,7 @@ body {
 .summary-header{
  width:100%;
  box-shadow: 0 0 1.25rem rgba(50, 200, 1, 0.288);
- background-color: lightgreen;
+ background-color: #C7E8CA;
 
 }
 
@@ -181,7 +187,7 @@ body {
 
 /* Adding a background color for each day */
 .card.day-monday {
-  background-color: #f0f8ff; /* Light blue */
+  background-color: #EEEEEE; /* Light blue */
 }
 
 .card.day-tuesday {
@@ -201,10 +207,10 @@ body {
 }
 
 .card.day-saturday {
-  background-color: #e0f0ff; /* Light cyan */
+  background-color: #B6FFCE; /* Light cyan */
 }
 
 .card.day-sunday {
-  background-color: #f0fff0; /* Light mint */
+  background-color: #E8F9FD; /* Light mint */
 }
 
