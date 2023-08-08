@@ -32,9 +32,10 @@ Route::get('/test',function(){
 })->name('test');
 
 
-Route::get('/personalDashboard',function(){
-    return view('user-personaldashboard');
-})->name('personaldashboard');
+
+
+
+
 
 Route::middleware('auth')->group(function () {
 
@@ -61,7 +62,19 @@ Route::middleware('auth')->group(function () {
         return view('auth.login');
     })->name('login');
 
+
+
+    
+Route::get('/personalDashboard',function(){
+    return view('user-personaldashboard');
+})->name('personaldashboard');
+
    
+    Route::get('/messages',function(){
+
+        return view('messages');
+       
+       })->name('messagelist');
     
    
    
