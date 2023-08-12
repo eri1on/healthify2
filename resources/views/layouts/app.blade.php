@@ -1,6 +1,47 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
+    <style>
+     .div-btn{
+        width:100%;
+         display:flex;
+          justify-content:flex-end;
+           align-items:center;
+           color:#EEEDED;
+     
+         
+          
+          
+
+     }
+     .div-btn a{
+   font-size: small;
+   font-family: Nunito,sans-serif;
+   color:#000000E6;
+   margin-right:45px;
+
+     }
+
+     .div-btn a:hover{
+        color:#468B97;
+     }
+
+     .start-a{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+     }
+
+     .start-a a{
+        font-size: medium !important;
+     }
+    
+    
+
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,11 +61,55 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
+            <div class="container" style="max-width:100% !important;">
+
+               
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Healthify
+                    
+                  <!--  <img class="logo" src="../img/Healthify_LOGO.png"> -->
+                    <span style="color:rgb(42, 230, 42)">H</span>ealthify
+                
                 </a>
+               
+                <div class="div-btn" >
+                    @if(Auth::user()&&Auth::user()->is_admin || Auth::user()&&Auth::user()->is_superadmin) 
+ 
+                      @if(\Request::route()->getName() !='dashboard')
+                         <a class="navbar-brand" href="{{route('dashboard')}}">Dashboard</a>
+                      @endif
+
+                    @endif 
+
+                    @guest
+                  
+
+                      @if(\Request::route()->getName() == 'index')
+                      <div class="start-a">
+                          <a class="navbar-brand" href="{{ route('myDiet') }}">START NOW</a>
+                      </div>
+                      @endif
+
+                    @else
+
+                       <a class="navbar-brand" href="{{ route('userprofileshow') }}">Profile</a>
+
+
+                 @if(\Request::route()->getName() != 'showDiet')
+                    <a  class="navbar-brand" href="{{route('showDiet')}}">My Diet</a>
+                 @endif
+
+                 @if(\Request::route()->getName()!='recipes')
+                   <a  class="navbar-brand" href="{{route('recipes')}}">Recipe and Tips</a>
+                 @endif
+                 
+                   <a  class="navbar-brand" href="{{route('index')}}" >Blog</a>
+                   <a  class="navbar-brand" href="{{route('index')}}" >FAQ</a>
+                   <a  class="navbar-brand" href="{{route('contactUs')}}">Contact Us</a>
+                 @endguest
+
+                </div>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,10 +143,24 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
+                                @php
+                                $user=Auth::user();
+
+                            @endphp
                                 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+
                                     <a class="dropdown-item" href="{{ route('showDiet') }}">My Diet</a>
-                                    <a class="dropdown-item" href="{{ route('userprofileshow') }}">My Profile</a>
+                                    <a class="dropdown-item" href="{{ route('userprofileshow') }}">Profile</a>
+
+                                   
+
+                                    @if($user->is_admin ||$user->is_superadmin)
+                                    <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                                       
+                                    @endif
+
 
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
