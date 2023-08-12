@@ -32,11 +32,6 @@ Route::get('/test',function(){
 })->name('test');
 
 
-
-
-
-
-
 Route::middleware('auth')->group(function () {
 
 
@@ -50,6 +45,9 @@ Route::middleware('auth')->group(function () {
         return view('auth.register');
     })->name('signup');
     
+  //  Route::get('/signup', SignupValidation::class)->name('signup');
+
+
     Route::get('/recipesTips', function () {
         return view('recipesTips');
     })->name('recipes');
@@ -64,11 +62,11 @@ Route::middleware('auth')->group(function () {
 
 
 
-    
+  /*  
 Route::get('/personalDashboard',function(){
     return view('user-personaldashboard');
 })->name('personaldashboard');
-
+*/
    
     Route::get('/messages',function(){
 
