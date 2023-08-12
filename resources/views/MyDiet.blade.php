@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,34 +14,7 @@
 </head>
 <body>
   
-  <header>
- <div class="header-top-div">
 
-    <div class="logo-div">
-
-        <img class="logo"src="../img/Healthify_LOGO.png" alt="">
-        <div class="logo-text"><span class="h" style="color:#379237">H</span>ealthify</div>
-        
-        
-    </div>
-
- 
-    <div class="nav-div">
-    @if(Auth::user()&&Auth::user()->is_admin || Auth::user()&&Auth::user()->is_superadmin) 
-    <button class="nav-btn"><a href="{{route('dashboard')}}">Dashboard</a></button>
-    @endif
-    <button class="nav-btn"> <a href="{{route('index')}}" >Home</a></button>
-   <button class="nav-btn"> <a href="{{route('userprofileshow')}}" >My Profile</a></button>
-    <button class="nav-btn"> <a href="{{route('index')}}" >Blog</a></button>
-    <button class="nav-btn"> <a href="{{route('index')}}" >FAQ</a></button>
-
-    </div>
-    
-
-
- </div>
-
-</header>
 
 <main>
 
@@ -301,3 +277,4 @@
  </footer>
 </body>
 </html>
+@endsection

@@ -1,3 +1,6 @@
+
+@extends('layouts.app')
+@section('content')
 <!Doctype html>
 <html>     
    <head>
@@ -15,39 +18,7 @@
 
    <body>
 
-      <header class="header"> 
-
-         <div class="left-section">
-
-            <img class="healthify-logo" src="../img/Healthify_LOGO.png">
-
-            <div class="healthify-text"><span style="color: rgb(42, 230, 42);">H</span>ealthify</div>
-
-         </div>
-
-         <div class="right-section">
-            @guest
-                <div class="myDiet"><a href="/MyDiet">My Diet</a></div>
-                <div class="recipes-and-tips"><a href="/recipesTips">Recipes and Tips</a></div>
-                <div class="contact-us"><a href="/contact-us">Contact Us</a></div>
-                <div class="sign-up"><a href="{{ route('register') }}">Sign Up</a></div>
-                <div class="login"><a href="{{ route('login') }}">Login</a> </div>
-            @else
-                <div class="myDiet"><a href="/MyDiet">My Diet</a></div>
-                <div class="recipes-and-tips"><a href="/recipesTips">Recipes and Tips</a></div>
-                <div class="contact-us"><a href="/contact-us">Contact Us</a></div>
-                <div class="profile"><a href="/user-profile">Profile</a></div>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="logout-btn">Logout</button>
-                    </form>
-                </div>
-            @endguest
-        </div>
-        
-        
-
-      </header>
+   
 
       <div class="text-background">
 
@@ -225,3 +196,4 @@
    </body>
 
 </html>
+@endsection

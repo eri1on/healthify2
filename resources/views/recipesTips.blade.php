@@ -1,3 +1,7 @@
+
+@extends('layouts.app')
+@section('content')
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,25 +21,7 @@
 
     <body>
 
-        <header class="header"> 
-
-            <div class="left-section">
-   
-               <img class="healthify-logo" src="../img/Healthify_LOGO.png">
-   
-               <div class="healthify-text"><span style="color: rgb(42, 230, 42);">H</span>ealthify</div>
-   
-            </div>
-   
-            <div class="right-section">
-
-                <div class="home"><a href="../Home/index.html">Home</a></div>
-                <div class="contact-us"><a href="#">Contact Us</a></div>
-                <div class="sign-up"><a href="../SignUP/SignUp.html">Sign Up</a></div>
-
-            </div>
-   
-         </header> 
+        
 
 
          <div class="introFood">
@@ -330,3 +316,4 @@
 
     </body>
 </html>
+@endsection
