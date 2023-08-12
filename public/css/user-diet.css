@@ -5,6 +5,24 @@ body {
   padding: 0;
   background-color: #f4f4f4;
 }
+main.py-4{
+  padding:0px 0px !important;
+}
+
+.Message{
+  width:100vw;
+  height:100vh;
+  background-color: #ccc;
+  padding:0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-weight: bolder;
+  color:#C70039;
+
+}
 
 .alert {
   margin: 10px 0;

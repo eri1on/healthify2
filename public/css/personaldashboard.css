@@ -3,7 +3,12 @@ body{
     padding:0;
     
 }
-
+.py-4{
+  padding:0px !important;
+}
+.container{
+  width:50%;
+}
 
 .main-div{
     background-color:#fff;
