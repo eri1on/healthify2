@@ -23,6 +23,19 @@
     @endif
 
 
+
+    @if(!$allDiet)
+
+
+    <div class="Message">
+        <h2>No Diet Found!</h2> 
+        <a href={{route('select-food')}}>Create One</a>
+        
+
+    </div>
+    
+    @else
+
 @php
 
 
@@ -113,4 +126,5 @@ foreach($diet as $userDiet){
 </body>
 </html>
 
+@endif
 @endsection
