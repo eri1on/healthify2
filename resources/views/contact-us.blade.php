@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,6 +14,7 @@
 		@livewireStyles
 	</head>
 	<body>
+		
 
 					<livewire:contact-form />
 				
