@@ -77,7 +77,8 @@ Route::get('/personalDashboard',function(){
    
    
     /*These are  user 'ProfileController' Routes,Where these methods can be used to allow  user to edit,update or delete their account*/
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    
+  //  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/personalDashboard',[ProfileController::class, 'show'])->name('userprofileshow');
