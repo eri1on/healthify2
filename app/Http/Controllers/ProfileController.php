@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 
 
@@ -39,22 +40,27 @@ class ProfileController extends Controller
 
 
 
+
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(array $validatedData)
     {
+
+      
+
     
-        $user = $request->user();
-        $user->fill($request->validated());
+        $user = Auth::user();
+        $user->fill($validatedData);
     
         // Hash the password if it is not empty
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->input('password'));
-        }else {
+        if (isset($validatedData['password']) && $validatedData['password'] !== null) {
+            $user->password = Hash::make($validatedData['password']);
+        } else {
             // If the password fields are not filled, use the user's current password
             $user->password = $user->getOriginal('password');
         }
+
     
         if ($user->isDirty('email')) {
             $user->email_verified_at = null;
