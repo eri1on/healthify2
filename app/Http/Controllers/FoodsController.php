@@ -22,23 +22,14 @@ class FoodsController extends Controller
      }
    
    //this methods is used to store or save foods into database table 'foods'
-    public function store(Request $request){
+    public function store(array $data){
         $user = auth()->user();
 
-
-        $validatedData=$request->validate([
-         'nameOfFood'=>['required','string','max:255', 'regex: /^[a-zA-Z\s]{2,}$/'],
-         'category'=>['required','string', 'max:255',  'regex:/^[A-Za-z\s]{2,}$/'],
-         'proteins'=>['required','numeric',             'regex: /^\d+(\.\d+)?$/'],
-         'vitamins'=>['required' , 'in:a,b,c,d,e'],
-         'calories'=>['required', 'numeric',            'regex:/^\d+(\.\d+)?$/'],
-         'carbohydrates'=>['required','numeric',        'regex:/^\d+(\.\d+)?$/'],
-
-        ]); 
+        
         if(Auth::user() && (Auth::user()->is_superadmin || Auth::user()->is_admin)){
-        Foods::create($validatedData);// Create a new row in the 'foods' table with the validated data
+        Foods::create($data);// Create a new row in the 'foods' table with the validated data
 
-        return redirect()->back()->with('success','Food added successfully!');
+        return redirect('dashboard-foods')->with('success','Food added successfully!');
     }else{
         return redirect()->back()->with('error', 'Unauthorized action!');
     }
