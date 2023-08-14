@@ -93,10 +93,15 @@
                     @else
 
                        <a class="navbar-brand" href="{{ route('userprofileshow') }}">Profile</a>
-
+                        
 
                  @if(\Request::route()->getName() != 'showDiet')
                     <a  class="navbar-brand" href="{{route('showDiet')}}">My Diet</a>
+                 @endif
+
+
+                 @if(\Request::route()->getName()!='myDiet')
+                 <a  class="navbar-brand" href="{{route('myDiet')}}">Services</a>
                  @endif
 
                  @if(\Request::route()->getName()!='recipes')
@@ -105,7 +110,11 @@
                  
                    <a  class="navbar-brand" href="{{route('index')}}" >Blog</a>
                    <a  class="navbar-brand" href="{{route('index')}}" >FAQ</a>
+
+                   @if(\Request::route()->getName()!='contactUs')
                    <a  class="navbar-brand" href="{{route('contactUs')}}">Contact Us</a>
+                   @endif
+
                  @endguest
 
                 </div>
