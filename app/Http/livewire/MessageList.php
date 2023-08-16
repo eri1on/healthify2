@@ -28,6 +28,7 @@ class MessageList extends Component
             return view('livewire.message-list', compact('messages'));
         }
 
-        return redirect()->back()->with('error', 'Unauthorized access!');
+        $unauthorized = true;
+        return view('livewire.message-list', compact('unauthorized'));
     }
 }
