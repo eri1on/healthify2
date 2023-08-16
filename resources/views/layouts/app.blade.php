@@ -92,8 +92,9 @@
 
                     @else
 
+                    @if(\Request::route()->getName() !='userprofileshow')
                        <a class="navbar-brand" href="{{ route('userprofileshow') }}">Profile</a>
-                        
+                     @endif
 
                  @if(\Request::route()->getName() != 'showDiet')
                     <a  class="navbar-brand" href="{{route('showDiet')}}">My Diet</a>
