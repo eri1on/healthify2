@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\DietController;
 use App\Http\Controllers\ShowDietController;
 use App\Http\Controllers\adminDietController;
+use App\Http\Controllers\livewire\AdminUserEdit;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,19 +28,13 @@ Route::get('/', function () {
 
 
 
-Route::get('/test',function(){
-    return view('test');
-})->name('test');
 
 
 Route::middleware('auth')->group(function () {
 
 
 
-    Route::get('/contact-us', function () {
-        return view('contact-us');
-    })->name('contactUs');
-    
+
 
     Route::get('/Signup', function () {
         return view('auth.register');
@@ -60,7 +55,17 @@ Route::middleware('auth')->group(function () {
         return view('auth.login');
     })->name('login');
 
+    
+    Route::get('/contact-us', function () {
+        return view('contact-us');
+    })->name('contactUs');
+    
 
+    Route::get('/messages',function(){
+
+        return view('messages');
+       
+       })->name('messagelist');
 
   /*  
 Route::get('/personalDashboard',function(){
@@ -68,11 +73,11 @@ Route::get('/personalDashboard',function(){
 })->name('personaldashboard');
 */
    
-    Route::get('/messages',function(){
+  
 
-        return view('messages');
-       
-       })->name('messagelist');
+
+
+    
     
    
    
@@ -87,7 +92,14 @@ Route::get('/personalDashboard',function(){
     Route::get('/user-info',[userController::class,'getData'])->name('userinfoshow'); //shows all users and all their info that are saved in database
     Route::get('/admin-user-edit/{id}',[userController::class,'edit'])->name('admin-user-edit');
     Route::delete('admin-user-delete/{id}',[userController::class,'destroy'])->name('admin-user-delete');
+    Route::put('AdminUpdateUser/{userId}',[AdminUserEdit::class,'updateUser'])->name('livewire-admin-user-update');  
+   
+   
+    /*
     Route::put('admin-user-update/{id}',[userController::class,'update'])->name('admin-user-update');
+    */
+
+
     // --------------------------
     Route::get('/foods/create',[FoodsController::class,'showForm'])->name('showCreateFoodForm');//calls a method in order to display the form to create foods
     Route::post('/foods',[FoodsController::class,'store'])->name('foods.store');//insert foods into database
