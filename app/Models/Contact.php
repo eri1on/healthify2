@@ -20,8 +20,6 @@ class Contact extends Model
     'message',
     'fk_signUp_id',
 
-
-
     ];
 
 
