@@ -1,234 +1,129 @@
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-main.py-4{
-  padding:0px 0px !important;
+.card-container {
+  max-width: 1000px;
+  margin:  auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f7f7f7;
 }
 
-.Message{
-  width:100vw;
-  height:100vh;
-  background-color: #ccc;
-  padding:0 0;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  border-right: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+
+}
+
+.table td {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.day-separator {
+  background-color: #eee;
+}
+
+.day-label {
+  font-size: 20px;
+  color: #555;
+  background-color: greenyellow;
+}
+
+/* Unique and awesome styling for different days */
+.day-Monday {
+  background-color: #f8e0e0;
+}
+
+.day-Tuesday {
+  background-color: #e0f8f8;
+}
+
+.day-Wednesday {
+  background-color: #f8f8e0;
+}
+
+.day-Thursday {
+  background-color: #e0e8f8;
+}
+
+.day-Friday {
+  background-color: #f0e8f8;
+}
+
+.day-Saturday {
+  background-color: #f8e8f0;
+}
+
+.day-Sunday {
+  background-color: #e8f8e0;
+}
+.buttons {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top:40px;
+ 
+}
+
+.space-btn {
+  margin-top: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  font-size: larger;
-  font-weight: bolder;
-  color:#C70039;
-
+ 
 }
 
-.alert {
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
+/* Style for buttons */
 .btn {
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
+  margin: 5px;
 }
 
 .btn-primary {
   background-color: #007bff;
-  color: white;
-  border: none;
- 
-}
-
-.btn-info {
-  background-color: #17a2b8;
-  color: white;
+  color: #fff;
   border: none;
 }
 
 .btn-danger {
   background-color: #dc3545;
-  color: white;
+  color: #fff;
+  border: none;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: #fff;
   border: none;
 }
 
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  
-}
-
-.card {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: calc(33.33% - 20px);
-  padding: 15px;
-  transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card-header h5{
-  color:#0E2954;
-  text-decoration: underline;
-  font-family: sans-serif;
-}
-
-.card-header {
-  font-size: 1.2rem;
-  font-weight:400;
-  margin-bottom: 10px;
-}
-
-.card-header b{
-  text-decoration: underline;
-  text-align: center;
-}
-.card-body p {
-  margin: 15px 0;
-  font-family: sans-serif;
-  width:60%;
-  display: flex;
-
-  justify-content: space-between;
-  text-decoration: underline;
-
- 
-
-}
-
-.div-day{
-  width:100%;
-  text-align: center;
-}
-
-.foodname{
-
-  border:1px solid;
-  width:fit-content;
-  padding:0px 8px;
-  background-color: #468B97;
-  color:#fff;
-  border-style: none;
-  border-radius: 5px;
-  text-align: center;
-
-}
-
-
-.card-body span{
-  color:#17a2b8;
-  font-size: small;
-}
-
-
-.card-header span{
-  color:#17a2b8;
-  font-size: small;
-}
-.card-header p{
-  font-size: medium;
-}
-
-.daily-summary{
-  width:100%;
-  display: flex;
-  justify-content: center;
- 
-}
-
-.summary-header{
- width:100%;
- box-shadow: 0 0 1.25rem rgba(50, 200, 1, 0.288);
- background-color: #C7E8CA;
-
-}
-
-.summary-header p{
-  font-family: sans-serif;
-  color:#0E2954;
-
-  font-weight: 500;
-  width:300px;
-  display: flex;
-  justify-content: space-between;
-}
-
-
-
-
-@media (max-width: 768px) {
-  .card {
-      width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 576px) {
-  .card {
-      width: 100%;
-  }
-}
-
-
-.buttons{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 40px;
-}
 .buttons p{
-  font-size: small;
-  font-style: italic;
-  color:chocolate;
+ background-color: #fff;
 }
-.space-btn{
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  width:50%;
-  margin:0 auto;
-
-  
+.daily-summary {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(110, 0, 0, 20);
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  font-family: sans-serif;
 }
-
-/* Adding a background color for each day */
-.card.day-monday {
-  background-color: #EEEEEE; /* Light blue */
-}
-
-.card.day-tuesday {
-  background-color: #f0ffe0; /* Light green */
-}
-
-.card.day-wednesday {
-  background-color: #f8f0ff; /* Light purple */
-}
-
-.card.day-thursday {
-  background-color: #fff0f0; /* Light pink */
-}
-
-.card.day-friday {
-  background-color: #fffdd0; /* Light yellow */
-}
-
-.card.day-saturday {
-  background-color: #B6FFCE; /* Light cyan */
-}
-
-.card.day-sunday {
-  background-color: #E8F9FD; /* Light mint */
-}
-

@@ -65,50 +65,54 @@ foreach($diet as $userDiet){
         </div>
 
     </div>
-
-
- 
-    
-
+    <br><b><br> <br><b><br>
 
 
 
 
     <div class="card-container">
-        @foreach($diet as $userDiet)
-
-       
-            <div class="card day-{{ $userDiet->day_of_week }}">
-                <div class="card-header" >
-
-                    <div class="div-day">
-                <b  style="color:#0E2954" >    {{ strtoupper($userDiet->day_of_week) }}</b>
-
-                    </div>
-
-                   <BR>
-                   
-                  <p class="foodname"style="font-family: sans-serif">  {{strtoupper ($userDiet->food->nameOfFood) }}<p>
-                   
-                </div>
-                <div class="card-body">
-                    <p><strong  style="color:#6C3428">Category:</strong>   <span>  {{  strtoupper($userDiet->food->category )}} </span></p>
-                    <p><strong style="color:#6C3428">Day Of Week:</strong>  <span> {{strtoupper( $userDiet->day_of_week )}} </span></p>
-                    <p><strong style="color:#6C3428">Meal Type:</strong> <span> {{ $userDiet->mealType }}</span> </p>
-                    <p><strong style="color:#6C3428">Vitamin:</strong> <span> {{ strtoupper($userDiet->food->vitamins) }} </span></p>
-                    <p><strong style="color:#6C3428">Proteins:</strong> <span style="color:#C51605"> {{ strtoupper($userDiet->food->proteins) }} gram</span></p>
-                    <p><strong style="color:#6C3428">Carbohydrates:</strong> <span style="color:#C51605">{{ strtoupper($userDiet->food->carbohydrates )}} gram</span> </p>
-     
-                   
-                </div>
-            </div>
-        @endforeach
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Day of Week</th>
+                    <th>Food Name</th>
+                    <th>Category</th>
+                    <th>Meal Type</th>
+                    <th>Vitamin</th>
+                    <th>Proteins</th>
+                    <th>Carbohydrates</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php
+                    $currentDay = null;
+                @endphp
+                @foreach($diet as $userDiet)
+                    @if ($currentDay !== $userDiet->day_of_week)
+                        @php
+                            $currentDay = $userDiet->day_of_week;
+                        @endphp
+                        <tr class="day-separator">
+                            <td colspan="7"><strong class="day-label">{{ ucfirst($userDiet->day_of_week) }}</strong></td>
+                        </tr>
+                    @endif
+                    <tr class="day-{{ $userDiet->day_of_week }}">
+                        <td>{{ ucfirst($userDiet->day_of_week) }}</td>
+                        <td>{{ strtoupper($userDiet->food->nameOfFood) }}</td>
+                        <td>{{ strtoupper($userDiet->food->category) }}</td>
+                        <td>{{ $userDiet->mealType }}</td>
+                        <td>{{ strtoupper($userDiet->food->vitamins) }}</td>
+                        <td>{{ strtoupper($userDiet->food->proteins) }} gram</td>
+                        <td>{{ strtoupper($userDiet->food->carbohydrates) }} gram</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-
  
 
     <div class="buttons">
-        <p>Before you update your diet, please keep your profile data up to date to get the best results for your diet data.</p>
+        <p>Before you update your diet, please keep your profile data up to date to get the best results for your diet.</p>
      <div class="space-btn">
     
         <a href="{{route('updateMyDiet')}}"><button id="btn-update" class="btn btn-primary">Edit My Diet</button></a>
