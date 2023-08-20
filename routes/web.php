@@ -8,6 +8,7 @@ use App\Http\Controllers\DietController;
 use App\Http\Controllers\ShowDietController;
 use App\Http\Controllers\adminDietController;
 use App\Http\Controllers\livewire\AdminUserEdit;
+use App\Http\Controllers\livewire\EditFood;
 use Illuminate\Support\Facades\Route;
 
 
@@ -110,7 +111,11 @@ Route::get('/personalDashboard',function(){
    // Routes for update and delete foods
     Route::get('/dashboard-foods',[FoodsController::class,'getAllFoods'])->name('dashboard-foods');
     Route::get('/admin-food-edit/{id}',[FoodsController::class,'edit'])->name('admin-food-edit');
-    Route::put('/admin-food-update/{id}',[FoodsController::class,'update'])->name('admin-food-update');
+
+   // Route::put('/admin-food-update/{id}',[FoodsController::class,'update'])->name('admin-food-update');
+
+   Route::put('/admin-food-update/{food}',[EditFood::class,'updateFood'])->name('admin-food-update');
+
     Route::delete('/admin-food-delete/{id}',[FoodsController::class,'delete'])->name('admin-food-delete');
 
 
