@@ -57,9 +57,7 @@ class DietController extends Controller
         'meal_types.*' => 'required|in:breakfast,lunch,dinner,snacks',
         'days' => 'required|array|min:20|max:30',
         'days.*' => 'required|in:monday,tuesday,wednesday,thursday,friday,saturday,sunday',
-     /*   'portion_size' => 'required|array',
-        'portion_size.*' => 'required|in:100,150,200',
-        */
+  
         
     ]);
 
@@ -67,9 +65,7 @@ class DietController extends Controller
     $mealTypes = $request->input('meal_types');
     $days = $request->input('days');
 
-    /*
-    $portion=$request->input('portion_size');
-    */
+  
 
     // Save the user's diet and meal plan to the database
     $diet = new UserDiet();
@@ -87,7 +83,7 @@ class DietController extends Controller
        $food=Foods::find($foodId);
        $totalCalories += $food->calories;
       
-       //$personalizedCalories = calculatePersonalizedCalories(auth()->user(),$totalCalories);
+       
        
         $mealPlan = new UserMealPlan();
         $mealPlan->day_of_week = $days[$index];
@@ -101,14 +97,7 @@ class DietController extends Controller
         $mealPlan->carbohydratesGram=$this->calculateCarbohydratesGrams($totalCalories);
         $mealPlan->proteinGram=$this->calculateProteinGram($totalCalories);
         
-/*
-        if(isset($portion[$index])){
-        $mealPlan->portion_size=$portion[$index];
-        }else{
-            $mealPlan->portion_size=100;
-        }
-        $mealPlan->personalized_grams = $this->calculatePersonalizedGrams(auth()->user(), $food->calories,$food->carbohydrates,$food->proteins,$portion);
-        */
+
 
 
         $mealPlan->save();
@@ -119,22 +108,6 @@ class DietController extends Controller
     return redirect()->route('showDiet')->with('success', 'Your diet has been created successfully.');
 }
 
-
-
-/*
-
-public function calculatePersonalizedGrams($user, $carbohydrates,$proteins, $foodCalories,$portionSize)
-{
-    // Calculate grams based on food calories and total calories for the day
-   
-    $foodNutritionalInfo = (float)$carbohydrates + (float)$proteins;
-    $portion = (float)$portionSize;
-    $grams = ($foodNutritionalInfo/$foodCalories) * $portion;
-
-    return $grams;
-    
-}
-*/
 
 
 
@@ -219,9 +192,7 @@ public function updateDiet(Request $request)
         $mealPlan->proteinGram=$this->calculateProteinGram($totalCalories);
 
 
-            /*
-            $mealPlan->personalized_grams = $this->calculatePersonalizedGrams(auth()->user(), $totalCalories, $food->calories);
-            */
+          
             $mealPlan->save();
         }
         $diet->week_start_date = now();
