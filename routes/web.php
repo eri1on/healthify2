@@ -9,6 +9,9 @@ use App\Http\Controllers\ShowDietController;
 use App\Http\Controllers\adminDietController;
 use App\Http\Controllers\livewire\AdminUserEdit;
 use App\Http\Controllers\livewire\EditFood;
+use App\Http\Controllers\RecipesController;
+use App\Http\Livewire\adminRecipeEdit;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,50 +43,63 @@ Route::middleware('auth')->group(function () {
     Route::get('/Signup', function () {
         return view('auth.register');
     })->name('signup');
-    
+
   //  Route::get('/signup', SignupValidation::class)->name('signup');
 
 
     Route::get('/recipesTips', function () {
         return view('recipesTips');
     })->name('recipes');
-    
+
     Route::get('/MyDiet', function () {
         return view('MyDiet');
     })->name('myDiet');
-    
+
     Route::get('/login', function () {
         return view('auth.login');
     })->name('login');
 
-    
+
     Route::get('/contact-us', function () {
         return view('contact-us');
     })->name('contactUs');
-    
+
 
     Route::get('/messages',function(){
 
         return view('messages');
-       
+
        })->name('messagelist');
 
-  /*  
+  /*
 Route::get('/personalDashboard',function(){
     return view('user-personaldashboard');
 })->name('personaldashboard');
 */
-   
-  
+
+
+Route::get('/addRecipes',function(){
+
+return view('add-recipes');
+
+
+})->name('addRecipesForm');
+
+
+Route::get('/recipesTips', [RecipesController::class, 'getRecipes'])->name('recipes');
+
+Route::get('/editRecipe/{recipeId}', [AdminRecipeEdit::class, 'editRecipe'])->name('editRecipe');
+Route::delete('/deleteRecipe/{Id}', [AdminRecipeEdit::class, 'destroy'])->name('deleteRecipe');
 
 
 
-    
-    
-   
-   
+
+
+
+
+
     /*These are  user 'ProfileController' Routes,Where these methods can be used to allow  user to edit,update or delete their account*/
-    
+
   //  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -93,9 +109,9 @@ Route::get('/personalDashboard',function(){
     Route::get('/user-info',[userController::class,'getData'])->name('userinfoshow'); //shows all users and all their info that are saved in database
     Route::get('/admin-user-edit/{id}',[userController::class,'edit'])->name('admin-user-edit');
     Route::delete('admin-user-delete/{id}',[userController::class,'destroy'])->name('admin-user-delete');
-    Route::put('AdminUpdateUser/{userId}',[AdminUserEdit::class,'updateUser'])->name('livewire-admin-user-update');  
-   
-   
+    Route::put('AdminUpdateUser/{userId}',[AdminUserEdit::class,'updateUser'])->name('livewire-admin-user-update');
+
+
     /*
     Route::put('admin-user-update/{id}',[userController::class,'update'])->name('admin-user-update');
     */
@@ -105,9 +121,9 @@ Route::get('/personalDashboard',function(){
     Route::get('/foods/create',[FoodsController::class,'showForm'])->name('showCreateFoodForm');//calls a method in order to display the form to create foods
     Route::post('/foods',[FoodsController::class,'store'])->name('foods.store');//insert foods into database
     Route::get('/selectFood',[DietController::class,'index'])->name('select-food');//display all the fodds from database into a view called select-foods
-    
+
     Route::get('/dashboard',[dashboardController::class,'showDashboardDetails'])->name('dashboard');//calls a method in order to display the dashbaord page
-     
+
    // Routes for update and delete foods
     Route::get('/dashboard-foods',[FoodsController::class,'getAllFoods'])->name('dashboard-foods');
     Route::get('/admin-food-edit/{id}',[FoodsController::class,'edit'])->name('admin-food-edit');
@@ -120,7 +136,7 @@ Route::get('/personalDashboard',function(){
 
 
     // --------------------------------------------------These are Routes when 'form' from select-food is submitted-------------
-    
+
     Route::post('/startDiet',[DietController::class,'saveDiet'])->name('startUserDiet');
     //----------------------------This route will  call a method which will display the current auth user diet.//
     Route::get('/showUserDiet',[ShowDietController::class,'showDiet'])->name('showDiet');
@@ -142,7 +158,7 @@ Route::get('/personalDashboard',function(){
     Route::put('/updateUserDiet/{id}',[adminDietController::class,'updateDiet'])->name('updateDietAdmin');
 
 
-  
+
 
 });
 
@@ -151,5 +167,3 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
