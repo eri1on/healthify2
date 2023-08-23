@@ -18,7 +18,7 @@
     </div>
 @endif
 
-   
+
     @php
     $user = auth()->user();
 @endphp
@@ -30,6 +30,7 @@
 <button id="btn-addFood"class="btn btn-info" ><a href="{{route('showCreateFoodForm')}}">ADD FOOD</a></button>
 <button id="btn-updateFood"class="btn btn-info" ><a href="{{route('dashboard-foods')}}">UPDATE FOOD</a></button>
 <button id="btn-ManageDiet"class="btn btn-info" ><a href="{{route('admin-diet-dashboard')}}">Manage Diet</a></button>
+<button id="btn-ManageDiet"class="btn btn-info" ><a href="{{route('addRecipesForm')}}">Add Recipe</a></button>
 <button id="btn-ManageDiet"class="btn btn-info" ><a href="{{route('messagelist')}}"> Manage Messages </a></button>
 </div>
 @else
