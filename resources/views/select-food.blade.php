@@ -23,7 +23,7 @@
             <select class="select-1"name="foods[]" >
                 <!-- Render options dynamically from the foods table in the database -->
                 @foreach ($foods as $food)
-                <option class="options" value="{{ $food->food_id }}">{{ $food->nameOfFood }}</option>
+                <option  class="options" value="{{ $food->food_id }}">{{ $food->nameOfFood }}</option>
                 
                 @endforeach
                 
@@ -32,18 +32,6 @@
                 <span class="error-message" style="color: red; font-weight: 600">{{ $message }}</span>
                 @enderror
 
-<!--
-
-            <label>Portion Size:</label>
-            <select class="select-1" name="portion_size[]">
-                <option class="options"value="100">Small</option>
-                <option class="options"value="150">Medium</option>
-                <option class="options"value="200">Large</option>
-            </select>
-             @ error('portion_size')
-            <span class="error-message" style="color: red; font-weight: 600">   $ message </span>
-            @ enderror
-!-->
 
             <label>Meal Type:</label>
             <select class="select-1"name="meal_types[]" >
