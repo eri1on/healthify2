@@ -28,7 +28,9 @@
     {{session('error')}}
     </div>
 @endif
-
+@php
+$user= auth()->user();
+@endphp
 
 
     <div class="introFood">
@@ -56,6 +58,8 @@
                 <div class="textTwoContainer">
                     {{ $recipe->description }}
                     <div class="recipe-buttons">
+                        
+                      @if($user->is_admin || $user->is_superadmin)
                         <button class="update-button"> <a href="{{ route('editRecipe', $recipe->id) }}">Edit</a></button>
 
                         <form action="{{ route('deleteRecipe', $recipe->id) }}" method="POST">
@@ -63,7 +67,7 @@
                             @method('DELETE')
                             <button class="update-button" type="submit">Delete</button>
                         </form>
-
+                      @endif
 
                     </div>
                 </div>
