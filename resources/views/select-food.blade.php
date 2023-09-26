@@ -23,7 +23,7 @@
             <select class="select-1"name="foods[]" >
                 <!-- Render options dynamically from the foods table in the database -->
                 @foreach ($foods as $food)
-                <option class="options" value="{{ $food->food_id }}">{{ $food->nameOfFood }}</option>
+                <option  class="options" value="{{ $food->food_id }}">{{ $food->nameOfFood }}</option>
                 
                 @endforeach
                 
