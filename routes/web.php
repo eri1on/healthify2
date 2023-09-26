@@ -78,6 +78,10 @@ Route::get('/personalDashboard',function(){
 */
 
 
+
+
+
+
 Route::get('/addRecipes',function(){
 
 return view('add-recipes');
@@ -156,8 +160,6 @@ Route::delete('/deleteRecipe/{Id}', [AdminRecipeEdit::class, 'destroy'])->name('
     Route::get('/adminDietEdit/{id}/{userId}',[adminDietController::class,'editDiet'])->name('adminEditDiet');
 
     Route::put('/updateUserDiet/{id}',[adminDietController::class,'updateDiet'])->name('updateDietAdmin');
-
-
 
 
 });

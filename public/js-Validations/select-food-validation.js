@@ -31,14 +31,22 @@ function valid() {
         }
     }
 
-    // Check if day of week is valid
+
     var validDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-    for (var i = 0; i < days.length; i++) {
-        if (!validDays.includes(days[i].value.toLowerCase())) {
-            errorDiv.innerText="Invalid day of the week. Please enter a valid day (e.g., Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday).";
+    
+    for (var i = 0; i < validDays.length; i++) {
+        var selectedFoods = 0; 
+        for (var j = 0; j < days.length; j++) {
+            if (days[j].value.toLowerCase() === validDays[i]) {
+                selectedFoods++;
+            }
+        }
+        if (selectedFoods < 4) {
+            errorDiv.innerText = "You must select at least 4 foods for each day.";
             return false;
         }
     }
+
 
     // Check if meal type is valid
     var validMealTypes = ['breakfast', 'lunch', 'dinner', 'snacks'];

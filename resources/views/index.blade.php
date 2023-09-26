@@ -145,7 +145,7 @@
 
             <div class="buttonFive">
 
-               <button class="button5"><a href="../ContactUs/contact-us.html">Give a Review</a></button>
+               <button class="button5"><a href="{{route('contactUs')}}">Give a Review</button>
 
             </div>
 
