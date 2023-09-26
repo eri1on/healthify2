@@ -18,14 +18,14 @@ trait DietCalculationsTrait{
         $activity = $user->activity;
         $goal = $user->goal;
     
-        // Calculate Basal Metabolic Rate (BMR) based on gender
+        //                   Calculate Basal Metabolic Rate (BMR) based on gender
         if ($gender == 'male') {
             $bmr = 88.362 + (13.397 * $weight) + (4.799 * $height) - (5.677 * $age);
         } else {
             $bmr = 447.593 + (9.247 * $weight) + (3.098 * $height) - (4.330 * $age);
         }
     
-        // Apply activity factor to BMR
+        //                  Apply activity factor to BMR
         $activityFactors = [
             'low_activity' => 1.2,
             'high_activity' => 1.725,
@@ -34,7 +34,7 @@ trait DietCalculationsTrait{
         $activityFactor = $activityFactors[$activity];
         $TCalories = $bmr * $activityFactor;
     
-        // Adjust calories based on goal
+        //  calories based on goal
         if ($goal == 'lose_weight') {
             $TCalories -= 500; // Subtract 500 calories for weight loss
         }elseif ($goal == 'gain_weight'){
