@@ -53,7 +53,7 @@ foreach($diet as $userDiet){
 
 
     <div class="daily-summary">
-
+        <p style="color:darkblue; font-size:medium">Note: If you have made changes to your profile data please make sure to edit your diet once again!.</p>
         <div class="card-container">
             <div class="card card-header summary-header">
                 <h5><b>Total Nutritional Values:</b> </h5>
@@ -112,7 +112,7 @@ foreach($diet as $userDiet){
  
 
     <div class="buttons">
-        <p>Before you update your diet, please keep your profile data up to date to get the best results for your diet.</p>
+      
      <div class="space-btn">
     
         <a href="{{route('updateMyDiet')}}"><button id="btn-update" class="btn btn-primary">Edit My Diet</button></a>
