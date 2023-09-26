@@ -32,6 +32,22 @@ function valid() {
     }
 
 
+    var validDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    
+    for (var i = 0; i < validDays.length; i++) {
+        var selectedFoods = 0; 
+        for (var j = 0; j < days.length; j++) {
+            if (days[j].value.toLowerCase() === validDays[i]) {
+                selectedFoods++;
+            }
+        }
+        if (selectedFoods < 4) {
+            errorDiv.innerText = "You must select at least 4 foods for each day.";
+            return false;
+        }
+    }
+
+
 
 
    
