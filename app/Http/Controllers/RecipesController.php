@@ -21,14 +21,12 @@ class RecipesController extends Controller
     {
 
         $this->user=Auth::user();
-        if($this->user && ($this->user->is_admin || $this->user->is_superadmin)){
+       
         $data = Recipes::all();
 
         return view('recipesTips', compact('data'));
 
-        }else{
-            return redirect()->back()->with('error','Unauthorized action');
-        }
+        
     }
 
 
