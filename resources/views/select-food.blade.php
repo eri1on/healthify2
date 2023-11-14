@@ -19,6 +19,7 @@
      
        
         <div class="food-row">
+            <span style="width: 7px;" class="row-number">1</span>
             <label>Food:</label>
             <select class="select-1"name="foods[]" >
                 <!-- Render options dynamically from the foods table in the database -->
@@ -70,6 +71,8 @@
     </div>
 <div class="buttons">
      <button type="button" id="add-food-row">+</button>
+    
+
      <img src="../img/sandwich.png"  style="width:80px;">
     <button  class="btn-create"type="submit">Create My Diet</button></div>
     

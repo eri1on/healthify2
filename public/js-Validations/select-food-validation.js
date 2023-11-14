@@ -2,17 +2,29 @@
 
 $(document).ready(function() {
     $('#add-food-row').click(function() {
+
+       
         var lastRow = $('.food-row:last');
         var clonedRow = lastRow.clone();
         clonedRow.find('select').val('');
         clonedRow.find('input').val('');
         clonedRow.appendTo('#foods-container');
+
+        $('.food-row').each(function(index) {
+            $(this).find('.row-number').text(index + 1);
+        });
+
+        if ($('.food-row').length >= 30) {
+            $('#add-food-row').hide();
+        }
+        
     });
+   
 
     $('#diet-form').submit(function(e) {
-        if ($('.food-row').length < 20 || $('.food-row').length > 30) {
+        if ($('.food-row').length < 28 || $('.food-row').length > 30) {
             e.preventDefault();
-            $('#error-message').text('Please select  between 20 and 30 foods!');
+            $('#error-message').text('Please select  between 28-30 foods!');
         }
     });
 });
@@ -31,6 +43,7 @@ function valid() {
         }
     }
 
+   
 
     var validDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
     
@@ -73,6 +86,15 @@ function valid() {
             return false;
         }
     }
+
+
+    var selectedFoodsArray = Array.from(foods).map(food => food.value);
+    if (new Set(selectedFoodsArray).size < 10) {
+        errorDiv.innerText = "You must select at least 10 different foods initially.";
+        return false;
+    }
+
+   
 
     return true;
 }
