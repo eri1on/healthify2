@@ -41,14 +41,7 @@
         
         <ul class="menu">
 
-         <a href="#">
-          
-            <li>  
-                <div class="item">
-                <img class="logo"src="../img/profilepic2.png"/>
-                <h6> <a href="#">  Profile</a>  <h6>
-                </div>
-          </li></a>
+       
 
 
          <a href="#"><li>
@@ -61,15 +54,7 @@
 
          </li></a>
 
-         <a href="#"><li>
-                 
-            <div class="item">
-                <img class="logo"src="https://www.svgrepo.com/show/233662/diet-vegan.svg"/>
-               
-                    <h6> <a href="#"> Diet History</a>  <h6>
-                </div>
-
-         </li></a>
+       
 
         </ul>
 
