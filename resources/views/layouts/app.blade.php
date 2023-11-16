@@ -84,11 +84,7 @@
                     @guest
                   
 
-                      @if(\Request::route()->getName() == 'index')
-                      <div class="start-a">
-                          <a class="navbar-brand" href="{{ route('myDiet') }}">START NOW</a>
-                      </div>
-                      @endif
+                     
 
                     @else
 
@@ -109,13 +105,16 @@
                    <a  class="navbar-brand" href="{{route('recipes')}}">Recipe and Tips</a>
                  @endif
                  
-                   <a  class="navbar-brand" href="{{route('index')}}" >Blog</a>
-                   <a  class="navbar-brand" href="{{route('index')}}" >FAQ</a>
+                  
 
                    @if(\Request::route()->getName()!='contactUs')
                    <a  class="navbar-brand" href="{{route('contactUs')}}">Contact Us</a>
                    @endif
 
+                   @if(\Request::route()->getName()!='addbank')
+                 <a class="navbar-brand" href="{{route('addbank')}}">Bank</a>
+                   @endif
+                 
                  @endguest
 
                 </div>
