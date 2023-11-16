@@ -17,6 +17,7 @@ class Recipes extends Model
 
         'title',
         'description',
+        'image',
 
     ];
 

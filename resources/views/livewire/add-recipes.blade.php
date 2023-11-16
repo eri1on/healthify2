@@ -24,6 +24,12 @@
         </div>
 
         <div class="form-group">
+            <label for="image">Image:</label>
+            <input wire:model="image" type="file" id="image" name="image">
+            @error('image') <span class="error" style="color:red">{{ $message }}</span> @enderror
+        </div>
+
+        <div class="form-group">
             <button type="submit">Submit</button>
         </div>
     </form>

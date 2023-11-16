@@ -7,10 +7,11 @@ use App\Http\Controllers\RecipesController;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Recipes;
+use Livewire\WithFileUploads;
 
 
 class adminRecipeEdit extends Component{
-
+   use WithFileUploads;
 
 
 
@@ -18,13 +19,15 @@ class adminRecipeEdit extends Component{
     public $RecipeId;
     public $title;
     public $description;
-
+    public $image;
+    public $currentImage;
 
 
    protected $rules=[
 
     'title'=>'required|string|min:5|max:255',
     'description'=>'required|string|min:30',
+    'image' => 'nullable|image|max:2024'
 
 ];
 
@@ -35,6 +38,7 @@ public function mount($recipeId) {
     $data = Recipes::findOrFail($this->RecipeId);
     $this->title = $data->title;
     $this->description = $data->description;
+    $this->currentImage = $data->image;
 }
 
 
@@ -74,9 +78,20 @@ public function editRecipe($id){
 
         $validatedData=$this->validate();
 
+        if ($this->image) {
+            
+            $imagePath = $this->image->store('images', 'public');// If a new image is provided, save it
+            $validatedData['image'] = $imagePath;
+        } else {
+            // If no new image is provided, retain the current image
+            $validatedData['image'] = $this->currentImage;
+        }
+
+        
         $toUpdate=Recipes::findOrFail($this->RecipeId);
 
         $toUpdate->update($validatedData);
+        $this->currentImage = $toUpdate->image;
 
 
 

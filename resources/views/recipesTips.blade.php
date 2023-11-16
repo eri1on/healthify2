@@ -51,7 +51,8 @@ $user= auth()->user();
         @foreach($reversedData as $recipe)
         <div class="mealTwo">
             <div class="picTwo">
-                <img class="meal2" src="../img/meal2.jpeg" alt="">
+                <!--<img class="meal2" src="../img/meal2.jpeg" alt=""> -->
+                <img class="meal2" src="{{ asset('storage/' . $recipe->image) }}" alt="">
             </div>
             <div class="textTwo">
                 <div class="headTwo">{{ $recipe->title }}</div>
@@ -60,13 +61,15 @@ $user= auth()->user();
                     <div class="recipe-buttons">
                         
                       @if($user->is_admin || $user->is_superadmin)
-                        <button class="update-button"> <a href="{{ route('editRecipe', $recipe->id) }}">Edit</a></button>
+                         <a  href="{{ route('editRecipe', $recipe->id) }}"><button class="update-button" >Edit</button></a>
 
                         <form action="{{ route('deleteRecipe', $recipe->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="update-button" type="submit">Delete</button>
+                            <button class="delete-button" type="submit">Delete</button>
                         </form>
+
+                        <a  href="{{ route('addRecipesForm') }}"><button class="newrecipe-button" >Add new recipe</button></a>
                       @endif
 
                     </div>
@@ -79,7 +82,7 @@ $user= auth()->user();
 
         @endforeach
         <div class="dietButton">
-            <button class="btn"><a href="../MyDiet/MyDiet.html">Create Your Own Diet</a></button>
+            <button class="btn"><a href="selectFood">Create Your Own Diet</a></button>
         </div>
 
     </div>

@@ -1,4 +1,3 @@
-
 @if(session('success'))
 <div class="alert alert-success">
     {{ session('success') }}
@@ -23,6 +22,21 @@
             <textarea wire:model="description"id="description" name="description" rows="4"  ></textarea>
         </div>
 
+        <div class="form-group">
+            <label for="image">Current Image:</label>
+            @if ($currentImage)
+                <img src="{{ asset('storage/' . $currentImage) }}" alt="Current Image" style="max-width: 200px; max-height: 200px;">
+            @else
+                <p>No image selected.</p>
+            @endif
+        </div>
+
+        <div class="form-group">
+            <label for="image">New Image:</label>
+            <input wire:model="image" type="file" id="image" name="image">
+            @error('image') <span class="error" style="color:red">{{ $message }}</span> @enderror
+        </div>
+        
         <div class="form-group">
             <button type="submit">UPDATE</button>
         </div>
