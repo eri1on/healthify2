@@ -31,17 +31,8 @@ body {
 }
 
 
-.healthify-logo {
-    height: 150px;
-    margin-left: 30px;
-    margin-right: -5px;
-}
 
 
-.healthify-text {
-    font-size: 23px;
-    color: white;
-}
 
 
 .right-section {
@@ -56,23 +47,7 @@ body {
     color: white;
 }
 
-.home {
-    font-family: Roboto, Arial;
-    font-size: 16px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 6px;
-    border-color: black;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-right: 25px;
-    cursor: pointer;
-}
-.home:hover {
-    background-color: #2a303d;
-}
+
 
 .contact-us {
     font-family: Roboto, Arial;
@@ -93,23 +68,7 @@ body {
 }
 
 
-.sign-up {
-    font-family: Roboto, Arial;
-    font-size: 16px;
-    border: solid;
-    border-width: 1px;
-    border-radius: 6px;
-    border-color: black;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-right: 25px;
-    cursor: pointer;
-}
-.sign-up:hover {
-    background-color: #2a303d;
-}
+
 
 .introFood {
     height: 400px;
@@ -166,7 +125,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+/*
 .mealContainer {
     border: solid;
     border-color: black;
@@ -179,6 +138,7 @@ body {
     border-top-left-radius: 490px;
     border: none;
 }
+*/
 
 .mealHeader {
     display: flex;
@@ -212,6 +172,7 @@ body {
     border-top-left-radius: 200px;
     border-bottom-left-radius: 200px;
     box-shadow: 0px 15px 15px #2a303d;
+    width:400px;
 }
 
 
@@ -244,26 +205,26 @@ body {
 }
 
 
-/* Add these styles to your existing CSS file */
 
 .recipe-buttons {
     display: flex;
-
+    justify-content: flex-start;
+    
     margin-top: 10px;
 }
 
-.update-button, .delete-button {
+.update-button, .delete-button, .newrecipe-button {
     padding: 8px 12px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     font-size: 14px;
     font-weight: 500;
-    margin-left:10px;
+    margin-right:10px;
 }
 
 .update-button {
-    background-color: #4CAF50;
+    background-color:green;
     color: white;
 }
 
@@ -272,27 +233,15 @@ body {
     color: white;
 }
 
-.update-button:hover, .delete-button:hover {
+.update-button:hover, .delete-button:hover , .newrecipe-button {
     opacity: 0.8;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.newrecipe-button{
+    background-color: darkblue;
+    color: white;
+}
 .dietButton {
     border: solid;
     border-color: black;
