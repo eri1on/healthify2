@@ -145,7 +145,9 @@
 
             <div class="buttonFive">
 
-               <button class="button5"><a href="{{route('contactUs')}}">Give a Review</button>
+               <button class="button5"><a href="{{route('contactUs')}}">Give a Review</a></button>
+                  
+             
 
             </div>
 
@@ -159,7 +161,7 @@
 
             <div class="infoHead"><span style="color: rgb(42, 230, 42);">H</span>ealthify</div>
 
-            You can't exercise your way out of a bad diet. Get comfortable with being uncomfortable.  If it was about knowledge, we would all be skinny and rich. It’s not about what you know but what you do!
+            You can't exercise your way out of a bad diet. Get comfortable with being uncomfortable.  If it was about knowledge, we would all be skinny and rich. Its not about what you know but what you do!
 
          </div>
 
