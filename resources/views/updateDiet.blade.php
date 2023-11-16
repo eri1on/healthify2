@@ -14,7 +14,9 @@
         <div id="foods-container">
             @foreach ($mealPlans as $index => $mealPlan)
             <div class="food-row">
+               
                 <label>Food:</label>
+               
                 <select class="select-1" name="foods[]">
                     @foreach ($foods as $food)
                     <option value="{{ $food->food_id }}" {{ $food->food_id == $mealPlan->fk_food_id ? 'selected' : '' }}>
@@ -43,9 +45,14 @@
                 </select>
             </div>
             @endforeach
+            <p>Total Rows: <span style="color:chocolate" id="row-count">{{ count($mealPlans) }}</span></p>
         </div>
+       
         <button type="button" id="add-food-row">+</button>
+        
+
         <button type="submit" class="btn btn-primary">Update Diet</button>
+        
     </form>
     <div class="errorDiv">
         <span id="error-message"  style="color:red; font-weight:600"></span><br>
